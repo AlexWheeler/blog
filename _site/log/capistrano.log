@@ -1,0 +1,188 @@
+# Logfile created on 2017-08-04 09:43:24 -0400 by logger.rb/56815
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-08-04 09:43:24 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [a2aefb5d] Running /usr/bin/env mkdir -p /tmp as alex@174.138.69.71
+ DEBUG [a2aefb5d] Command: /usr/bin/env mkdir -p /tmp
+  INFO [a2aefb5d] Finished in 0.353 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-blog-production-Alex.sh 0.0%
+  INFO Uploading /tmp/git-ssh-blog-production-Alex.sh 100.0%
+  INFO [2aca74da] Running /usr/bin/env chmod 700 /tmp/git-ssh-blog-production-Alex.sh as alex@174.138.69.71
+ DEBUG [2aca74da] Command: /usr/bin/env chmod 700 /tmp/git-ssh-blog-production-Alex.sh
+  INFO [2aca74da] Finished in 0.013 seconds with exit status 0 (successful).
+  INFO [ec60d654] Running /usr/bin/env git ls-remote git@github.com:alexwheeler/blog.git HEAD as alex@174.138.69.71
+ DEBUG [ec60d654] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-blog-production-Alex.sh" ; /usr/bin/env git ls-remote git@github.com:alexwheeler/blog.git HEAD )
+ DEBUG [ec60d654] 	Warning: Permanently added 'github.com,192.30.253.112' (RSA) to the list of known hosts.
+ DEBUG [ec60d654] 	Permission denied (publickey).
+ DEBUG [ec60d654] 	fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-08-04 09:43:44 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [725e28c3] Running /usr/bin/env mkdir -p /tmp as alex@174.138.69.71
+ DEBUG [725e28c3] Command: /usr/bin/env mkdir -p /tmp
+  INFO [725e28c3] Finished in 0.375 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-blog-production-Alex.sh 0.0%
+  INFO Uploading /tmp/git-ssh-blog-production-Alex.sh 100.0%
+  INFO [31dcd6c9] Running /usr/bin/env chmod 700 /tmp/git-ssh-blog-production-Alex.sh as alex@174.138.69.71
+ DEBUG [31dcd6c9] Command: /usr/bin/env chmod 700 /tmp/git-ssh-blog-production-Alex.sh
+  INFO [31dcd6c9] Finished in 0.016 seconds with exit status 0 (successful).
+  INFO [c0595c4f] Running /usr/bin/env git ls-remote git@github.com:alexwheeler/blog.git HEAD as alex@174.138.69.71
+ DEBUG [c0595c4f] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-blog-production-Alex.sh" ; /usr/bin/env git ls-remote git@github.com:alexwheeler/blog.git HEAD )
+ DEBUG [c0595c4f] 	Warning: Permanently added the RSA host key for IP address '192.30.253.113' to the list of known hosts.
+ DEBUG [c0595c4f] 	Permission denied (publickey).
+ DEBUG [c0595c4f] 	fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-08-04 09:44:03 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [5434a613] Running /usr/bin/env mkdir -p /tmp as alex@174.138.69.71
+ DEBUG [5434a613] Command: /usr/bin/env mkdir -p /tmp
+  INFO [5434a613] Finished in 0.419 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-blog-production-Alex.sh 0.0%
+  INFO Uploading /tmp/git-ssh-blog-production-Alex.sh 100.0%
+  INFO [b37e5a61] Running /usr/bin/env chmod 700 /tmp/git-ssh-blog-production-Alex.sh as alex@174.138.69.71
+ DEBUG [b37e5a61] Command: /usr/bin/env chmod 700 /tmp/git-ssh-blog-production-Alex.sh
+  INFO [b37e5a61] Finished in 0.018 seconds with exit status 0 (successful).
+  INFO [3c92aa3a] Running /usr/bin/env git ls-remote git@github.com:alexwheeler/blog.git HEAD as alex@174.138.69.71
+ DEBUG [3c92aa3a] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-blog-production-Alex.sh" ; /usr/bin/env git ls-remote git@github.com:alexwheeler/blog.git HEAD )
+ DEBUG [3c92aa3a] 	Permission denied (publickey).
+ DEBUG [3c92aa3a] 	fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-08-04 09:46:45 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [8af37ce4] Running /usr/bin/env mkdir -p /tmp as alex@174.138.69.71
+ DEBUG [8af37ce4] Command: /usr/bin/env mkdir -p /tmp
+  INFO [8af37ce4] Finished in 0.304 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-blog-production-Alex.sh 0.0%
+  INFO Uploading /tmp/git-ssh-blog-production-Alex.sh 100.0%
+  INFO [f6adb4ac] Running /usr/bin/env chmod 700 /tmp/git-ssh-blog-production-Alex.sh as alex@174.138.69.71
+ DEBUG [f6adb4ac] Command: /usr/bin/env chmod 700 /tmp/git-ssh-blog-production-Alex.sh
+  INFO [f6adb4ac] Finished in 0.012 seconds with exit status 0 (successful).
+  INFO [d9105195] Running /usr/bin/env git ls-remote git@github.com:alexwheeler/blog.git HEAD as alex@174.138.69.71
+ DEBUG [d9105195] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-blog-production-Alex.sh" ; /usr/bin/env git ls-remote git@github.com:alexwheeler/blog.git HEAD )
+ DEBUG [d9105195] 	5fc887b84d7ad8672b7dffb427bb03c8f08dacc5	HEAD
+  INFO [d9105195] Finished in 0.276 seconds with exit status 0 (successful).
+  INFO [5e2aa377] Running /usr/bin/env mkdir -p /home/deploy/blog/shared /home/deploy/blog/releases as alex@174.138.69.71
+ DEBUG [5e2aa377] Command: /usr/bin/env mkdir -p /home/deploy/blog/shared /home/deploy/blog/releases
+ DEBUG [5e2aa377] 	mkdir: 
+ DEBUG [5e2aa377] 	cannot create directory ‘/home/deploy’
+ DEBUG [5e2aa377] 	: Permission denied
+ DEBUG [5e2aa377] 	
+ DEBUG [5e2aa377] 	mkdir: 
+ DEBUG [5e2aa377] 	cannot create directory ‘/home/deploy’
+ DEBUG [5e2aa377] 	: Permission denied
+ DEBUG [5e2aa377] 	
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-08-04 09:47:21 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [a2d5ce9c] Running /usr/bin/env mkdir -p /tmp as alex@174.138.69.71
+ DEBUG [a2d5ce9c] Command: /usr/bin/env mkdir -p /tmp
+  INFO [a2d5ce9c] Finished in 0.881 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-blog-production-Alex.sh 0.0%
+  INFO Uploading /tmp/git-ssh-blog-production-Alex.sh 100.0%
+  INFO [efa8c4eb] Running /usr/bin/env chmod 700 /tmp/git-ssh-blog-production-Alex.sh as alex@174.138.69.71
+ DEBUG [efa8c4eb] Command: /usr/bin/env chmod 700 /tmp/git-ssh-blog-production-Alex.sh
+  INFO [efa8c4eb] Finished in 0.017 seconds with exit status 0 (successful).
+  INFO [4fadd762] Running /usr/bin/env git ls-remote git@github.com:alexwheeler/blog.git HEAD as alex@174.138.69.71
+ DEBUG [4fadd762] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-blog-production-Alex.sh" ; /usr/bin/env git ls-remote git@github.com:alexwheeler/blog.git HEAD )
+ DEBUG [4fadd762] 	5fc887b84d7ad8672b7dffb427bb03c8f08dacc5	HEAD
+  INFO [4fadd762] Finished in 0.324 seconds with exit status 0 (successful).
+  INFO [9e66e80a] Running /usr/bin/env mkdir -p /home/deploy/blog/shared /home/deploy/blog/releases as alex@174.138.69.71
+ DEBUG [9e66e80a] Command: /usr/bin/env mkdir -p /home/deploy/blog/shared /home/deploy/blog/releases
+ DEBUG [9e66e80a] 	mkdir: 
+ DEBUG [9e66e80a] 	cannot create directory ‘/home/deploy’
+ DEBUG [9e66e80a] 	: Permission denied
+ DEBUG [9e66e80a] 	
+ DEBUG [9e66e80a] 	mkdir: 
+ DEBUG [9e66e80a] 	cannot create directory ‘/home/deploy’
+ DEBUG [9e66e80a] 	: Permission denied
+ DEBUG [9e66e80a] 	
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-08-04 09:47:47 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [e664e604] Running /usr/bin/env mkdir -p /tmp as alex@174.138.69.71
+ DEBUG [e664e604] Command: /usr/bin/env mkdir -p /tmp
+  INFO [e664e604] Finished in 0.318 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-blog-production-Alex.sh 0.0%
+  INFO Uploading /tmp/git-ssh-blog-production-Alex.sh 100.0%
+  INFO [463276bd] Running /usr/bin/env chmod 700 /tmp/git-ssh-blog-production-Alex.sh as alex@174.138.69.71
+ DEBUG [463276bd] Command: /usr/bin/env chmod 700 /tmp/git-ssh-blog-production-Alex.sh
+  INFO [463276bd] Finished in 0.019 seconds with exit status 0 (successful).
+  INFO [851179b3] Running /usr/bin/env git ls-remote git@github.com:alexwheeler/blog.git HEAD as alex@174.138.69.71
+ DEBUG [851179b3] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-blog-production-Alex.sh" ; /usr/bin/env git ls-remote git@github.com:alexwheeler/blog.git HEAD )
+ DEBUG [851179b3] 	5fc887b84d7ad8672b7dffb427bb03c8f08dacc5	HEAD
+  INFO [851179b3] Finished in 0.302 seconds with exit status 0 (successful).
+  INFO [fbd703c6] Running /usr/bin/env mkdir -p /home/deploy/blog/shared /home/deploy/blog/releases as alex@174.138.69.71
+ DEBUG [fbd703c6] Command: /usr/bin/env mkdir -p /home/deploy/blog/shared /home/deploy/blog/releases
+ DEBUG [fbd703c6] 	mkdir: 
+ DEBUG [fbd703c6] 	cannot create directory ‘/home/deploy’
+ DEBUG [fbd703c6] 	: Permission denied
+ DEBUG [fbd703c6] 	
+ DEBUG [fbd703c6] 	mkdir: 
+ DEBUG [fbd703c6] 	cannot create directory ‘/home/deploy’
+ DEBUG [fbd703c6] 	: Permission denied
+ DEBUG [fbd703c6] 	
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-08-04 09:48:31 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [819bec24] Running /usr/bin/env mkdir -p /tmp as alex@174.138.69.71
+ DEBUG [819bec24] Command: /usr/bin/env mkdir -p /tmp
+  INFO [819bec24] Finished in 0.412 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-blog-production-Alex.sh 0.0%
+  INFO Uploading /tmp/git-ssh-blog-production-Alex.sh 100.0%
+  INFO [fd318409] Running /usr/bin/env chmod 700 /tmp/git-ssh-blog-production-Alex.sh as alex@174.138.69.71
+ DEBUG [fd318409] Command: /usr/bin/env chmod 700 /tmp/git-ssh-blog-production-Alex.sh
+  INFO [fd318409] Finished in 0.018 seconds with exit status 0 (successful).
+  INFO [9bbd93db] Running /usr/bin/env git ls-remote git@github.com:alexwheeler/blog.git HEAD as alex@174.138.69.71
+ DEBUG [9bbd93db] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-blog-production-Alex.sh" ; /usr/bin/env git ls-remote git@github.com:alexwheeler/blog.git HEAD )
+ DEBUG [9bbd93db] 	5fc887b84d7ad8672b7dffb427bb03c8f08dacc5	HEAD
+  INFO [9bbd93db] Finished in 0.286 seconds with exit status 0 (successful).
+  INFO [ee5a85b6] Running /usr/bin/env mkdir -p /home/deploy/blog/shared /home/deploy/blog/releases as alex@174.138.69.71
+ DEBUG [ee5a85b6] Command: /usr/bin/env mkdir -p /home/deploy/blog/shared /home/deploy/blog/releases
+  INFO [ee5a85b6] Finished in 0.015 seconds with exit status 0 (successful).
+ DEBUG [54a7263f] Running [ -f /home/deploy/blog/current/REVISION ] as alex@174.138.69.71
+ DEBUG [54a7263f] Command: [ -f /home/deploy/blog/current/REVISION ]
+ DEBUG [54a7263f] Finished in 0.013 seconds with exit status 1 (failed).
+ DEBUG [e8d7e140] Running [ -f /home/deploy/blog/repo/HEAD ] as alex@174.138.69.71
+ DEBUG [e8d7e140] Command: [ -f /home/deploy/blog/repo/HEAD ]
+ DEBUG [e8d7e140] Finished in 0.013 seconds with exit status 1 (failed).
+ DEBUG [dc7f4d29] Running if test ! -d /home/deploy/blog; then echo "Directory does not exist '/home/deploy/blog'" 1>&2; false; fi as alex@174.138.69.71
+ DEBUG [dc7f4d29] Command: if test ! -d /home/deploy/blog; then echo "Directory does not exist '/home/deploy/blog'" 1>&2; false; fi
+ DEBUG [dc7f4d29] Finished in 0.014 seconds with exit status 0 (successful).
+  INFO [27368bc2] Running /usr/bin/env git clone --mirror git@github.com:alexwheeler/blog.git /home/deploy/blog/repo as alex@174.138.69.71
+ DEBUG [27368bc2] Command: cd /home/deploy/blog && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-blog-production-Alex.sh" ; /usr/bin/env git clone --mirror git@github.com:alexwheeler/blog.git /home/deploy/blog/repo )
+ DEBUG [27368bc2] 	Cloning into bare repository '/home/deploy/blog/repo'...
+  INFO [27368bc2] Finished in 0.363 seconds with exit status 0 (successful).
+ DEBUG [2a0cb63c] Running if test ! -d /home/deploy/blog/repo; then echo "Directory does not exist '/home/deploy/blog/repo'" 1>&2; false; fi as alex@174.138.69.71
+ DEBUG [2a0cb63c] Command: if test ! -d /home/deploy/blog/repo; then echo "Directory does not exist '/home/deploy/blog/repo'" 1>&2; false; fi
+ DEBUG [2a0cb63c] Finished in 0.015 seconds with exit status 0 (successful).
+  INFO [c17585f2] Running /usr/bin/env git remote set-url origin git@github.com:alexwheeler/blog.git as alex@174.138.69.71
+ DEBUG [c17585f2] Command: cd /home/deploy/blog/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-blog-production-Alex.sh" ; /usr/bin/env git remote set-url origin git@github.com:alexwheeler/blog.git )
+  INFO [c17585f2] Finished in 0.019 seconds with exit status 0 (successful).
+  INFO [d6099e27] Running /usr/bin/env git remote update --prune as alex@174.138.69.71
+ DEBUG [d6099e27] Command: cd /home/deploy/blog/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-blog-production-Alex.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [d6099e27] 	Fetching origin
+  INFO [d6099e27] Finished in 0.312 seconds with exit status 0 (successful).
+ DEBUG [6780056f] Running if test ! -d /home/deploy/blog/repo; then echo "Directory does not exist '/home/deploy/blog/repo'" 1>&2; false; fi as alex@174.138.69.71
+ DEBUG [6780056f] Command: if test ! -d /home/deploy/blog/repo; then echo "Directory does not exist '/home/deploy/blog/repo'" 1>&2; false; fi
+ DEBUG [6780056f] Finished in 0.014 seconds with exit status 0 (successful).
+  INFO [3e476d78] Running /usr/bin/env mkdir -p /home/deploy/blog/releases/20170804134832 as alex@174.138.69.71
+ DEBUG [3e476d78] Command: cd /home/deploy/blog/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-blog-production-Alex.sh" ; /usr/bin/env mkdir -p /home/deploy/blog/releases/20170804134832 )
+  INFO [3e476d78] Finished in 0.019 seconds with exit status 0 (successful).
+  INFO [d90bbd9f] Running /usr/bin/env git archive master _site | /usr/bin/env tar -x --strip-components 1 -f - -C /home/deploy/blog/releases/20170804134832 as alex@174.138.69.71
+ DEBUG [d90bbd9f] Command: cd /home/deploy/blog/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-blog-production-Alex.sh" ; /usr/bin/env git archive master _site | /usr/bin/env tar -x --strip-components 1 -f - -C /home/deploy/blog/releases/20170804134832 )
+ DEBUG [d90bbd9f] 	fatal: pathspec '_site' did not match any files
+ DEBUG [d90bbd9f] 	tar: 
+ DEBUG [d90bbd9f] 	This does not look like a tar archive
+ DEBUG [d90bbd9f] 	
+ DEBUG [d90bbd9f] 	tar: 
+ DEBUG [d90bbd9f] 	Exiting with failure status due to previous errors
+ DEBUG [d90bbd9f] 	
