@@ -4,21 +4,37 @@ title: "Monorepos"
 date: 2017-09-16 09:36:14 -0400
 categories: ruby git
 ---
+Like many technology companies we happily use Git to decentralize our
+development workflow. Browsing through the VTS organization on Github you’ll
+notice a similar trend. Each of our repositories tracks one logical project.
+This works really well for us and countless other companies around the world.
+However, just because this is the optimal way to organize our projects, doesn’t
+mean its the best approach for every project. The alternative to this approach
+is the monorepo.
 
-Monorepos,
+Flipper is a Ruby gem we use extensively at VTS to turn features on or off for
+a set of users. Like many of our projects, Flipper chose to use Git as a key
+part of its development workflow, but unlike VTS, its repository is organized
+as a monorepo. The rest this post we’ll walk through a real-world issue opened
+on the Flipper repo to answer two important questions — What is a monorepo, and
+when would I use one?
 
-Orbyt recently opened a [really great issue](https://github.com/jnunemaker/flipper/issues/287) on the Flipper
-repo.  Following a provided
-[example](https://github.com/jnunemaker/flipper/blob/master/examples/active_record/basic.rb), he installed
-Flipper and required the ActiveRecord adapter.
+## Two Weeks Earlier...
+*Thursday, 09-14-2017, 9am*
+
+With a warm cup of coffee and visions of glory, Orbyt is ready to use Flipper
+for the very first time. Following a provided example, he gem installs Flipper
+and smiles to himself as the all too familiar characters stream down the
+monitor in front of him.
+
+`1 gem installed`
+
+Its time. Orbyt initializes a new Flipper instance using the ActiveRecord
+adapter:
 
 ```ruby
 require 'flipper/adapters/active_record'
-```
 
-With visions of glory he attempted to initialize a new Flipper instance using the ActiveRecord adapter:
-
-```ruby
 adapter = Flipper::Adapters::ActiveRecord.new
 flipper = Flipper.new(adapter)
 ```
@@ -27,6 +43,10 @@ flipper = Flipper.new(adapter)
 
 The dreaded uninitialized constant.  As much as we'd like to believe the `Flipper::Adapters::ActiveRecord`
 class is defined, the Ruby interpreter insists otherwise - and Ruby is always right.
+
+At this point in the story Orbyt opens a really great issue on the Flipper
+repo, which inspired me to write this post. How can it be that this adapter
+class is undefined?
 
 Browsing through the [Flipper](https://github.com/jnunemaker/flipper) repo you see it right there,
 [Flipper::Adapters::ActiveRecord](https://github.com/jnunemaker/flipper/blob/master/lib/flipper/adapters/active_record.rb).
@@ -67,7 +87,7 @@ the Github repo lists 14.
 ## Enter Monorepo
 
  Flipper uses what's known as a monorepo - a single git repository to track multiple projects.  This
-approach works really well in Flipper's case.  Flipper has a core api that calls into
+approach works really well in Flipper's case.  Flipper has a core API that calls into
 [adapters](https://github.com/jnunemaker/flipper/blob/master/docs/Adapters.md) when it needs to interact with
 a datastore.  Each adapter implements the same interface so they are completely interchangeable.
 
@@ -113,7 +133,7 @@ flipper[:cool_feature].enable(user)
 ```
 
 The `Flipper` class provides a simple public interface, which is used in favor of interacting with adapters
-directly. This means you'll always develop a Flipper adapter alongside the Flipper core api code,  which brings
+directly. This means you'll always develop a Flipper adapter alongside the Flipper core API code,  which brings
 us to the first benefit of monorepos:
 
 **1. Dependency Management**
@@ -298,6 +318,10 @@ RubyGems.
 ```ruby
 gem.files = `git ls-files`.split("\n") - ignored_files + ['lib/flipper/version.rb']
 ```
+
+And there we have it. Flipper::Adapters::ActiveRecord is undefined because
+although the source exists in the monorepo, the bundled flipper gem does not
+include it when published. Thanks monorepo.
 
 Big shoutout to `Orbyt` for opening an awesome issue and submitting a
 [PR](https://github.com/jnunemaker/flipper/commit/5761282a4b47acba7faee4c706be7227d31467d5) that improves
