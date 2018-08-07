@@ -1,0 +1,161 @@
+---
+layout: post
+title: "Advanced Ag"
+date: 2018-08-02 09:36:14 -0400
+categories: command-line
+---
+I want to talk about one of the more powerful tools in my toolbox - [Ag](https://github.com/ggreer/the_silver_searcher).  As a developer I'll bet you spend a fair amount of time writing code, but I'd argue you spend even more time reading code.  Having a solid understanding of your language's standard library, or a framework's core abstractions will no doubt come in handy, but if you're working on anything larger than a *Hello World* program chances are you spend a lot of time digging through code - lots of code.  This is where a code searching tool like Ag proves indespensible.  Yes, Ag can do your basic keyword searches, but so can your favorite editor.  I want to share some of the more advanced options I find myself using day-to-day to shine a light on just how powerful this of a tool it can be.
+
+*All examples will use [Flipper](https://github.com/jnunemaker/flipper) as an example codebase we can search through.  Feel free to `git clone https://github.com/jnunemaker/flipper.git && cd flipper` to follow along!*
+
+
+## Why Ag?
+
+* fast...really fast (orders of magnitude faster than grep/ack)
+* version control system awareness - ignores file patterns in your .gitignore
+* ignores file patterns added to .ignore (eg .min.js)
+
+## Install
+
+`brew install ag`
+
+# Basic Searching
+
+`ag [file-type] [options] PATTERN [PATH]`
+
+With one argument Ag recursively searches the current directory for the given pattern.
+
+`ag Gate`
+
+![ag](/assets/searching/ag.png)
+
+Pass it a second argument to recursively search a directory.  This becomes especially useful when working in an opinionated framework like Rails where I know all of my controller code lives under *app/controllers*, specs under *spec/controllers*,  etc.
+
+`ag Gate spec`
+
+![ag](/assets/searching/ag-directory.png)
+
+# Whole Word
+
+Often we're searching for a pattern that appears in many different contexts within our app.  Usually this is a core domain concept like User, Property, or Gate.  We only want to hit on cases where this pattern is a whole word - meaning not a subset of a larger word.
+
+`ag Gate`
+
+*Note how `Gate` is matched, but so is `Flipper::GateNotFound` since it contains `Gate`.*
+
+![ag](/assets/searching/ag.png)
+
+`ag -w Gate`
+
+![ag](/assets/searching/whole-word.png)
+
+# File Type
+
+`ag --ruby User`
+
+`ag --js console`
+
+Restrict search to specific file-type.  This is really useful if you have, for example, Ruby and JavaScript
+services that share the same name.
+
+To see all supported file-types: `ag --list-file-types`.
+
+# List
+
+Ag returns the filename and line matching PATTERN.  Sometimes we just want to list the filenames.
+
+`ag Gate -l`
+
+![ag](/assets/searching/list.png)
+
+`ag Gate -l | sort` - *pro tip: who doesn't prefer a sorted list?*
+
+![ag](/assets/searching/ag-list-sort.png)
+
+# File Pattern
+
+Limit search to file names (including path) that contain a pattern:
+
+`ag User -G controllers`
+
+**Usecase:**
+
+Your Rails and JavaScript admin panel code are both namespaced under an *admin* directory and you want to search both:
+
+`ag User -G /admin/`
+
+# Ignore Directory
+
+`ag UserCreator --ignore-dir spec/`
+
+`--ignore-dir` can be used to search everywhere, *except* a given directory.  Multiple directories can be ignored by repeating the option.
+
+`ag User --ignore-dir spec/ --ignore-dir config/`.
+
+# Piping
+
+Ag reads from Standard Input, allowing us to pipe results into the filter.
+
+**Usecase 1:** searching rails routes
+
+In rails we can get an overview of all defined routes by running the `rake routes` task.  With thousands of routes and not enough coffee left in my mug this would take way too long to search through by hand.
+
+`rake routes`
+
+![ag](/assets/searching/rake-routes.png)
+
+`rake routes | ag sign_in`
+
+![ag](/assets/searching/rake-routes-ag.png)
+
+**Usecase 2:** filtering logs
+
+Have you ever tried to figure out which controllers actions are handling requests on page load?  Rails logs every request a controller processes.  With Ag we can easily filter for these messages:
+
+`tail -f log/development.log`
+
+![ag](/assets/searching/tail.png)
+
+
+`tail -f log/development.log | ag "Processing by"`
+
+![ag](/assets/searching/tail-ag.png)
+
+**Usecase 3:** killing processes
+
+Every once in a while I'll try to shut down an irb session by sending a SIGINT via *ctrl-c*, only to have the process fail to terminate.  When a process wants to play these kind of games there's only one option - SIGTERM baby!
+
+Get the PID by listing running processes with `ps -ax`
+
+![ag](/assets/searching/ps.png)
+
+Filter the results for any irb processes `ps -ax | ag irb`
+
+![ag](/assets/searching/irb.png)
+
+`kill 78154`
+
+# Regex
+
+`ag [file-type] [options] PATTERN [PATH]`
+
+We've mostly seen basic words as the PATTERN parameter.  It turns out PATTERN supports Perl-style regular expressions making Ag's searching capablities limitless.
+
+**Usecase:** very specific searches
+
+Let's search for every reference to the `Feature` class in files ending in *adapter.rb* or *store.rb*.
+
+`ag -w -G "(adapter|store).rb$"`
+
+![ag](/assets/searching/regex.png)
+
+# Context
+
+`man ag | ag -C case`
+
+Ag will display the line matching PATTERN, but sometimes we need some more context.  For this we can pass the context (-C) flag to print the 2 lines above and below each match. Note the difference between the above command and the result of `man ag | ag case`.
+
+# EOF
+This really just scratches the surface of the powers of Ag.  To learn more be sure to take a read through the man pages (`man ag`) in your shell of choice.
+
+Happy ~~hacking~~ Ag-ing!
