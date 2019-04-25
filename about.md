@@ -4,4 +4,10 @@ title: About
 permalink: /about/
 ---
 
-👋 I'm Alex, a remote software engineer @ VTS.  This is the place I dump fun learnings from various projects.  Thanks for stopping by! 💻
+👋 I'm Alex, a remote software engineer @ VTS.  I love surfing and coding, just not at the same time.
+
+
+
+This is me and my van
+
+![van](/assets/about/van.jpg)
