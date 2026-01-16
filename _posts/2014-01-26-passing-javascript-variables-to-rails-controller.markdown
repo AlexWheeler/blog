@@ -1,10 +1,3 @@
----
-layout: post
-title:  "Passing Javascript Variables to Rails Controller"
-date:   2014-01-26 09:36:14 -0400
-categories: jekyll update
----
-
 *“To the man who only has a hammer, everything he encounters begins to look like a nail.”* - Abraham Harold Maslow
 
 Ruby is an amazing programming language.  It ships with beautiful syntax, an extensive standard library, and more open source libraries  (via gems) than we could ever know what to do with.  However, every job requires different tools, and while there are almost always multiple ways to address a problem, I firmly believe you should make your life easier and pick the right tool for the job at hand. Ruby works great on the server side of most web applications, however when it comes to client-side programming there is no doubt that JavaScript reigns supreme.  Theres a reason it is often referred to as the language of the browser.  An understanding of JavaScript is a must for any modern day web developer and with the emergence of many awesome [HTML5 APIs](http://www.creativebloq.com/html5/developer-s-guide-html5-apis-1122923) you would be missing out on a lot of fun if you didn’t have at least a basic understanding of it.
@@ -18,8 +11,6 @@ I came across this very problem recently in a project I’m working on. The prem
 I knew that if I could somehow get the data into a form I could submit it to the controller.  Since JavaScript allows us to manipulate just about anything on a web page, then this problem should be no challenge for such a powerful programming language.  *Don’t worry If you’re not even a little bit familiar with JavaScript/jQuery or the DOM, the following will only be a high level overview of my code.*
 
 The app is quite simple.  A user that wants to request a friend’s location visits a home page.  He or she fills in their phone number and a phone number for the friend who’s location they want.
-
-image
 
  A hyperlink is sent as a text message to the friend’s phone with a query string containing the original senders phone number set to the phonenumber parameter (my next post will cover how we solved data persistence in this app). When the friend clicks the link, a url of my app is opened, containing some JS code that executes upon page load. This JavaScript doesn’t only get the user’s lat/long, but also is the key to passing itself to my controller for further processing.  So, how does this work?
 

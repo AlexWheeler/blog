@@ -1,15 +1,6 @@
----
-layout: post
-title: "Auditing with Rack Middleware"
-date: 2019-04-25 09:36:14 -0400
-categories: ruby
----
-
 # Rack
 
-[Rack](https://github.com/rack/rack) describes itself as a "minimal, modular, and adaptable interface for
-developing web applications in Ruby".  In layman's terms its just a set of rules that, when followed,
-allow web servers and web applications to talk to each other.
+[Rack](https://github.com/rack/rack) describes itself as a "minimal, modular, and adaptable interface for developing web applications in Ruby".  In layman's terms its just a set of rules that, when followed, allow web servers and web applications to talk to each other.
 
 The typical flow of a web app is as follows:
 
@@ -23,13 +14,9 @@ Plain-text in, plain-text out.
 
 There are lots of web servers: WEBrick, Thin, Puma, etc. There are even more Ruby web frameworks: Rails, Sinatra, Rum, Hanami, Merb, just to name a few.
 
-One day web server authors and web framework authors got wise and held a big meeting.  The web framework authors were growing really tired of having
-to write tons of code to support all the different ways web servers were handing them representations of these plain-text HTTP requests.
-Some passed a request as a raw String, others as an Array, and some gave it as a Hash - in Spanish!  The web server authors were also getting pretty fed up with
-framework authors.  Every framework was handing their responses to the web servers in a different format. Complete chaos. So what happened?
+One day web server authors and web framework authors got wise and held a big meeting.  The web framework authors were growing really tired of having to write tons of code to support all the different ways web servers were handing them representations of these plain-text HTTP requests.  Some passed a request as a raw String, others as an Array, and some gave it as a Hash - in Spanish!  The web server authors were also getting pretty fed up with framework authors.  Every framework was handing their responses to the web servers in a different format. Complete chaos. So what happened?
 
-The web server peeps came up with a set of rules.  They said your frameworks need to provide an *app* object that responds to the `call` method, taking a `Hash` representing the request.
-This object needs to return an `Array` with three elements:
+The web server peeps came up with a set of rules.  They said your frameworks need to provide an *app* object that responds to the `call` method, taking a `Hash` representing the request.  This object needs to return an `Array` with three elements:
 
 * HTTP response code
 * Hash of headers
@@ -49,25 +36,19 @@ end
 Rack::Handler::WEBrick.run app
 ```
 
-Not a week after Rack was released Medium and HackerNews exploded with posts about the *Death of Rack*.  They
-thought Rack was great, but there were three problems:
+Not a week after Rack was released Medium and HackerNews exploded with posts about the *Death of Rack*.  They thought Rack was great, but there were three problems:
 
-1. Developers needed the ability to manipulate requests after their web server had received them, but before
-   they reached their web framework.
-2. They needed  the option to manipulate responses after their web framework had responded, but before they
-   reached their web server to be sent to the client.
+1. Developers needed the ability to manipulate requests after their web server had received them, but before they reached their web framework.
+
+2. They needed  the option to manipulate responses after their web framework had responded, but before they reached their web server to be sent to the client.
+
 3. No keyboard warrior on either site could decide which color the logo should be.
 
-Problem #3 was punted for a further date, but the Rack authors quickly came up with a solution to problems #1
-and #2.  They figured their solution would sit in the middle of the web server and the application and it
-needed to sound somewhat smart so they tacked on *ware*.  They following day Rack Middleware was introduced.
+Problem #3 was punted for a further date, but the Rack authors quickly came up with a solution to problems #1 and #2.  They figured their solution would sit in the middle of the web server and the application and it needed to sound somewhat smart so they tacked on *ware*.  They following day Rack Middleware was introduced.
 
 # Rack Middleware
 
-Middlware sits between a web server and an app and allows developers to manipulate the requests and responses
-the two exchange.  Middlewares can be chained, each one altering the request/response and passing it along to
-the next one in the chain.  Rack provides a small `Rack::Builder` DSL for constructing Rack apps that use
-middleware.
+Middlware sits between a web server and an app and allows developers to manipulate the requests and responses the two exchange.  Middlewares can be chained, each one altering the request/response and passing it along to the next one in the chain.  Rack provides a small `Rack::Builder` DSL for constructing Rack apps that use middleware.
 
 ```ruby
 app = Proc.new { |env| ['200', {'Content-Type' => 'text/html'}, ['A barebones rack app.']] }
@@ -80,11 +61,7 @@ Rack::Handler::WEBrick.run builder
 
 `use` adds middleware to the stack.  `run` dispatches to an application.
 
-Rack Middleware must follow the same Rack guidelines with one extra rule - it must have an initialize method
-that takes 1 argument, the next thing in the stack built by Rack::Builder.  When a request comes in the `call`
-method will be invoked with the request named `env`. The middleware can then decide to manipulate the request and
-pass it down the stack towards the app.  It can also manipulate it when the response is passed back up the
-stack to it.
+Rack Middleware must follow the same Rack guidelines with one extra rule - it must have an initialize method that takes 1 argument, the next thing in the stack built by Rack::Builder.  When a request comes in the `call` method will be invoked with the request named `env`. The middleware can then decide to manipulate the request and pass it down the stack towards the app.  It can also manipulate it when the response is passed back up the stack to it.
 
 Let's take a look at a basic middleware:
 
@@ -104,8 +81,7 @@ class FooMiddleware
 end
 ```
 
-That's really all there is to know about Rack.  This little bit of knowledge will prove super useful when
-working with most Ruby web applications as we'll see in the next sections.
+That's really all there is to know about Rack.  This little bit of knowledge will prove super useful when working with most Ruby web applications as we'll see in the next sections.
 
 # Flipper::UI
 
@@ -125,13 +101,11 @@ Clicking into one of those features will take users to a page for managing that 
 
 ![flipper-ui-features](/assets/middleware-audit/flipper-ui-feature.png)
 
-With one line of code you can provide users of your library with a really nice web interface thanks to Rack.  `mount` expects a Rack app, which is exactly what `Flipper::UI.app` returns.  Whenever a request hits `/flipper` we can guarantee that
-our app's call method will be invoked with a Hash representing the request.
+With one line of code you can provide users of your library with a really nice web interface thanks to Rack.  `mount` expects a Rack app, which is exactly what `Flipper::UI.app` returns.  Whenever a request hits `/flipper` we can guarantee that our app's call method will be invoked with a Hash representing the request.
 
 
-Since we all now know how Rack works you will have no problem seeing that `Flipper::UI` is just a Rack
-application built on top of a plain old Ruby lambda:
-*[source](https://github.com/jnunemaker/flipper/blob/master/lib/flipper/ui.rb#L42)*
+Since we all now know how Rack works you will have no problem seeing that `Flipper::UI` is just a Rack application built on top of a plain old Ruby lambda: *[source](https://github.com/jnunemaker/flipper/blob/master/lib/flipper/ui.rb#L42)*
+
 ```ruby
 module Flipper
   class UI
@@ -156,6 +130,7 @@ end
 ```
 
 If you look closely you'll notice one line that opens some pretty cool doors.
+
 ```ruby
 def self.app(flipper = nil, options = {})
 #  env_key = options.fetch(:env_key, 'flipper')
@@ -175,9 +150,7 @@ def self.app(flipper = nil, options = {})
 end
 ```
 
-When provided a block, `Flipper::UI.app` invokes the block, yielding the `Rack::Builder` instance.  This
-exposes the internal Rack::Builder instance allowing developers to chain any additional middleware they'd
-like:
+When provided a block, `Flipper::UI.app` invokes the block, yielding the `Rack::Builder` instance.  This exposes the internal Rack::Builder instance allowing developers to chain any additional middleware they'd like:
 
 ```ruby
 Rails.application.routes.draw do
@@ -208,8 +181,7 @@ In Chrome's network inspector we see this button makes a:
 
 ![enable](/assets/middleware-audit/enable-zoom.png)
 
-We also know we have an authenticated user interacting with the UI so can get the user making these requests from the server.
-All of this information combined tells us:
+We also know we have an authenticated user interacting with the UI so can get the user making these requests from the server.  All of this information combined tells us:
 
 **Who made the change?** - currently signed in user
 
@@ -279,11 +251,9 @@ Some notes on the middleware:
 * We filter our the authenticity_token, which is there to protect against CSRF attacks.
 
 
-Now in our logs we can easily query for the these messages and get an understanding of who's done what within
-the Flipper UI.
+Now in our logs we can easily query for the these messages and get an understanding of who's done what within the Flipper UI.
 
 ![flipper-ui-features](/assets/middleware-audit/logentries.png)
 *Logentries' [advanced LEQL](https://docs.logentries.com/docs/search)*
 
-I always find it useful connecting the theory with real-world examples.  Hopefully this gives you just a bit
-more understanding of your Rack applications.
+I always find it useful connecting the theory with real-world examples.  Hopefully this gives you just a bit more understanding of your Rack applications.

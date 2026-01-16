@@ -1,22 +1,12 @@
----
-layout: post
-title: "Procs, Blocks, Lambdas, and Lies"
-date: 2019-04-22 09:36:14 -0400
-categories: ruby
----
-
-Github user supersam654 recently opened a great [issue](https://github.com/jnunemaker/flipper/issues/405) on the Flipper repo after running into trouble trying to
-register a group using Ruby's `&:method` shorthand.
+Github user supersam654 recently opened a great [issue](https://github.com/jnunemaker/flipper/issues/405) on the Flipper repo after running into trouble trying to register a group using Ruby's `&:method` shorthand.
 
 ![issue](/assets/ruby-arity-symbol-proc/issue.png)
 
-Groups allow enabling features based on the return value of a block, which is passed the actor
-when checking for enabledness.
+Groups allow enabling features based on the return value of a block, which is passed the actor when checking for enabledness.
 
 # &:admin?
 
-When Rubyists want to call a method on every member of an Enumerable we tend to avoid the extra keystrokes
-needed to type out the whole block:
+When Rubyists want to call a method on every member of an Enumerable we tend to avoid the extra keystrokes needed to type out the whole block:
 
 ```ruby
 ["a", "b", "c"].map { |letter| letter.upcase }
@@ -33,10 +23,7 @@ in favor of the more concise:
 #=> ["A", "B", "C"]
 ```
 
-This works with any Enumerable method that yields each member of the collection to the provided block.  If
-this works with `map`, `each`, `select`, etc. why is supersam654 having trouble using it with
-`Flipper.register`?  To answer this we're going to have to take a tour of some of the more advanced features
-of Ruby.  Let's get started.
+This works with any Enumerable method that yields each member of the collection to the provided block.  If this works with `map`, `each`, `select`, etc. why is supersam654 having trouble using it with `Flipper.register`?  To answer this we're going to have to take a tour of some of the more advanced features of Ruby.  Let's get started.
 
 
 # Registering Groups
@@ -75,8 +62,7 @@ def match?(thing, context)
 end
 ```
 
-When checking if a feature is enabled for a given user, `match?` eventually gets called with the user and optionally the context if your provided block takes two arguments .  The feature
-is enabled for the user if the result of the block is true.
+When checking if a feature is enabled for a given user, `match?` eventually gets called with the user and optionally the context if your provided block takes two arguments .  The feature is enabled for the user if the result of the block is true.
 
 # Arity
 
@@ -88,13 +74,9 @@ else
 end
 ```
 
-Arity is the number of arguments a function takes (*Thanks [Wikipedia!](https://en.wikipedia.org/wiki/Arity),
-and screw you high school teacher who said Wikipedia was not a credible source for my essays!*).
+Arity is the number of arguments a function takes (*Thanks [Wikipedia!](https://en.wikipedia.org/wiki/Arity), and screw you high school teacher who said Wikipedia was not a credible source for my essays!*).
 
-Ruby, with
-its powerful metaprogramming abilities lets us introspect any object we'd like *including* method objects.
-Who said Ruby methods aren't first class citizens?  To figure out a method's arity we don't need
-  any special wizardry we just need to politely ask it.
+Ruby, with its powerful metaprogramming abilities lets us introspect any object we'd like *including* method objects.  Who said Ruby methods aren't first class citizens?  To figure out a method's arity we don't need any special wizardry we just need to politely ask it.
 
 ```ruby
 def greet(person)
@@ -137,10 +119,7 @@ lambda {|*args| }.arity
 
 # Lies, Lies, and More Lies
 
-I have to apologize for telling a slight lie earlier.  The register method doesn't just store the block in an
-instance variable `@block`.  When `&` is prepended to a parameter like `&block` Ruby converts the provided block
-to a proc, which allows us to reference it by dropping the ampersand. You can name this whatever you want e.g. `&foo`.  If passed an argument
-prepended with `&` instead of a block, it converts the argument to a proc by calling `to_proc` on it.
+I have to apologize for telling a slight lie earlier.  The register method doesn't just store the block in an instance variable `@block`.  When `&` is prepended to a parameter like `&block` Ruby converts the provided block to a proc, which allows us to reference it by dropping the ampersand. You can name this whatever you want e.g. `&foo`.  If passed an argument prepended with `&` instead of a block, it converts the argument to a proc by calling `to_proc` on it.
 
 ```ruby
 def register(name, &block)
@@ -182,8 +161,7 @@ register(:admin) { |actor| actor.admin? }
 # => 1
 ```
 
-Hold up.  With the block the correct arity is returned, but with `&:admin?` -1 is returned! This explains why
-`Flipper.register` is working with blocks, but not the `&:admin?` shortcut.
+Hold up.  With the block the correct arity is returned, but with `&:admin?` -1 is returned! This explains why `Flipper.register` is working with blocks, but not the `&:admin?` shortcut.
 
 ```ruby
 def match?(thing, context)
@@ -217,8 +195,7 @@ class Symbol
   end
 end
 ```
-If we had a symbol such as `:upcase`,
-when invoked:
+If we had a symbol such as `:upcase`, when invoked:
 
 ```ruby
 ["a", "b", "c"].map { |letter| letter.upcase }
@@ -233,9 +210,7 @@ def to_proc
 end
 ```
 
-Now we understand what this `&:upcase` business is all about, but that still doesn't explain why the two
-examples above aren't actually the same.  That's beacuse I've lied done it again! Another lie!  The real definition of
-`Symbol#to_proc` looks more like this:
+Now we understand what this `&:upcase` business is all about, but that still doesn't explain why the two examples above aren't actually the same.  That's beacuse I've lied done it again! Another lie!  The real definition of `Symbol#to_proc` looks more like this:
 
 ```ruby
 class Symbol
@@ -252,9 +227,7 @@ class Symbol
 end
 ```
 
-As seen in our simplified example above `Symbol#to_proc` **always** returns a proc that takes a variable number of
-arguments, while  blocks converted to procs via `&block` return procs that take the exact same number of
-arguments as the block:
+As seen in our simplified example above `Symbol#to_proc` **always** returns a proc that takes a variable number of arguments, while  blocks converted to procs via `&block` return procs that take the exact same number of arguments as the block:
 
 ```ruby
 def arity(&block)
@@ -267,9 +240,7 @@ arity() { |user| user.admin? }
 arity(&:to_s)
 # => -1
 ```
-This means that in the `&:admin?` case we end up in the else condition and pass arguments to
-`admin?`, which expects 0. As always the computer does exactly what we tell it to do and not what we want it
-to. The computer wins and an exception is raised.
+This means that in the `&:admin?` case we end up in the else condition and pass arguments to `admin?`, which expects 0. As always the computer does exactly what we tell it to do and not what we want it to. The computer wins and an exception is raised.
 
 ```ruby
 def match?(thing, context)
@@ -295,9 +266,7 @@ Since this has been merged it should be going out in the next release after 0.16
 
 # Follow Up
 
-If you thought this was a fun dive into some parts of Ruby you may not have explored I encourage you to
-experiment and implement your own to_proc method.  Think of some ways you can make it more powerful.  I'll get
-you started:
+If you thought this was a fun dive into some parts of Ruby you may not have explored I encourage you to experiment and implement your own to_proc method.  Think of some ways you can make it more powerful.  I'll get you started:
 
 ```ruby
 class String

@@ -1,9 +1,3 @@
----
-layout: post
-title: "Library Configuration"
-date: 2019-05-15 09:36:14 -0400
-categories: ruby
----
 At some point in your open source project's lifetime users are going to want the ability to configure your software to suit their needs.  They'll want to add their own text to a dashboard. They'll need to disable the ability to take some action.  They'll want to rip out your [Taylor Swift video](https://github.com/jnunemaker/flipper/pull/384) from the UI.  FWIW I actually find the Taylor Swift embed pretty funny.
 
 What if I told you there was a way we could all be happy?  And, no, the answer doesn't involve monkey patching. The easiest pattern I've come across involves introducing a `Configuration` class:

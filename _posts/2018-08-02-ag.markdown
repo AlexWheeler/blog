@@ -1,9 +1,3 @@
----
-layout: post
-title: "Advanced Ag"
-date: 2018-08-02 09:36:14 -0400
-categories: command-line
----
 I want to talk about one of the more powerful tools in my toolbox - [Ag](https://github.com/ggreer/the_silver_searcher).  As a developer I'll bet you spend a fair amount of time writing code, but I'd argue you spend even more time reading code.  Having a solid understanding of your language's standard library, or a framework's core abstractions will no doubt come in handy, but if you're working on anything larger than a *Hello World* program chances are you spend a lot of time digging through code - lots of code.  This is where a code searching tool like Ag proves indespensible.  Yes, Ag can do your basic keyword searches, but so can your favorite editor.  I want to share some of the more advanced options I find myself using day-to-day to shine a light on just how powerful of a tool it can be.
 
 *All examples will use [Flipper](https://github.com/jnunemaker/flipper) as an example codebase we can search through.  Feel free to `git clone https://github.com/jnunemaker/flipper.git && cd flipper` to follow along!*
@@ -55,8 +49,7 @@ Often we're searching for a pattern that appears in many different contexts with
 
 `ag --js console`
 
-Restrict search to specific file-type.  This is really useful if you have, for example, Ruby and JavaScript
-services that share the same name.
+Restrict search to specific file-type.  This is really useful if you have, for example, Ruby and JavaScript services that share the same name.
 
 To see all supported file-types: `ag --list-file-types`.
 
