@@ -1,6 +1,6 @@
 I found that querying by category worked great.  The URL for all of the moving jobs was simply */moving*.  But what about the URL for a category that had multiple words separated by spaces?  Would the Home Services be found at */Home* Services.  Unfortunately, the answer is no.  It turns out that when a string gets encoded as a URL all of the spaces get encoded as %20.  If you’re curious you can read here about why this occurs.  [https://tools.ietf.org/html/rfc3986#page-12](https://tools.ietf.org/html/rfc3986#page-12),
 
-![param query main](assets/param-query-main.png)
+![param query main](/assets/param-query-main.png)
 
 If you don’t have the time or could care less than just know that spaces in strings get encoded as *%20* in a URL.  From an SEO standpoint this is not good and is actually quite confusing to a user.  Since we want our app to be as user friendly as possibly a user should be confident that when they want to see a listing of the Home Services jobs they can be found at a predictable location.  */Home%20Services* is far from predictable.  After doing some research I found that the most common way to deal with spaces is to replace them with a simple “-”.  This is much more SEO and user friendly.  It is much easier for a user to remember that any category with a space need simply to have the space replaced with a “-” rather than %20.
 
