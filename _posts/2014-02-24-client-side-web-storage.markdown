@@ -64,11 +64,11 @@ That really is all there is to the LocalStorage API.  Below I will post a very b
 
 In my previous blog post  I mentioned a recent app some friends and I built that requires the user to type in their phone number and a friend’s phone number and click enter.  From a user point-of-view we wanted the app to be as streamlined as possible  - no download necessary, any OS, fill in as little information as required, etc.  Since the user’s phone number will always be the number from the phone they are accessing the app from, there is no reason for the user to have to retype it every single time they would like to use the app.  What if the app remembered their phone number and all he or she had to do was type in the friend’s phone number?  This would cut the amount of typing the user has to do in half!  Well, with localStorage this is possible.
 
-![geofun 1](/assets/client-side-web-storage/geofun-form-1.png)
+![geofun 1]({{ site.baseurl }}/assets/client-side-web-storage/geofun-form-1.png)
 
 Above is the initial form.  Why should a user have to type in his or her phone number every single time?  Wouldn’t it be easier if they entered a phone number once (for example: 999-999-9999) and then every time they came back to the site it would already be entered?
 
-![geofun 2](/assets/client-side-web-storage/geofun-form-2.png)
+![geofun 2]({{ site.baseurl }}/assets/client-side-web-storage/geofun-form-2.png)
 
 We can solve this by saving the user’s phone number into localStorage using jQuery/JavaScript and then retrieving this information every time the user visits.
 

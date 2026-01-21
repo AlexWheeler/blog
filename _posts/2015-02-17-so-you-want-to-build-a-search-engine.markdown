@@ -93,7 +93,7 @@ Linked Lists solve just that.  A linked list is exactly what it sounds like.  It
 
 2. null
 
-![linked-list](/assets/so-you-want-to-build-a-search-engine/linked-list.png)
+![linked-list]({{ site.baseurl }}/assets/so-you-want-to-build-a-search-engine/linked-list.png)
 
 Let’s take for example Node A seen above.  Node A has two attributes:
 
@@ -128,7 +128,7 @@ This solves our problem of not wanting to have to worry about adding elements an
 
 Onto the second problem of wanting to delete elements.  This is actually even easier.  Since we are just working with nodes and pointers the easiest way to delete a node is to simply take the previous node and point it at the node after the one we want to delete, essentially routing around it.
 
-![linked-list-2](/assets/so-you-want-to-build-a-search-engine/linked-list-2.png)
+![linked-list-2]({{ site.baseurl }}/assets/so-you-want-to-build-a-search-engine/linked-list-2.png)
 
 Great! Linked Lists solve our two problems with arrays.  We can add as many elements as we’d like to and we can delete elements extremely easily.  The only problem is that we have lost the one thing arrays are really good at - lightning fast lookup if we know where data lives.  Since we have no way to reference a node without chaining through the whole list, we can’t directly look up some data as we could in an array.
 
@@ -138,7 +138,7 @@ If only we could get the lightning fast speed of arrays with the flexibility of 
 
 Hash tables combine the speed of Array lookup, with the flexibility of Linked Lists to provide us with a near perfect data structure.  A hash table is an Array, but instead of each index holding our data it holds a pointer pointing to a linked list (we call these buckets) of data.  Take a look at the hash table below. The numbers on the left represent the array indexes, and the arrows are pointers pointing to items that have been inserted into the table.  In an Array we just push items in since we don’t need to know which index to find them at.  Hash Tables, on the other hand are used when we want to (very quickly) be able to look up a value without having to iterate through an entire structure.  This means that the same function we use to determine which bucket or index to insert it into is, will be the same function we use to find which bucket the data lives in.
 
-![linked-list](/assets/so-you-want-to-build-a-search-engine/hash-table.png)
+![linked-list]({{ site.baseurl }}/assets/so-you-want-to-build-a-search-engine/hash-table.png)
 
 This is where the hashing function comes into play (hence the name hash table).  Hashing is a method to turn a string of characters into a key or value that represents the original string.  So, we need to pick some sort of key that we will use for the data we’re storing in the table.  If you’re storing data about people you could use a first name, last name, social security number (probably not best idea lol), anything that can identify the object.  In our case we have a database full of Articles so we’ll use each article’s title.  This will determine where to put the data, and we can use the same method to find where we put that data.
 
@@ -224,7 +224,7 @@ B: `[1, 1, 0, 1, 0, 0, 0, 1]`
 
 We can then use the following formula to calculate their cosine similarity - ranging from 0 (no similarity) -> 1 (perfectly similar).
 
-![linked-list](/assets/so-you-want-to-build-a-search-engine/cosine.png)
+![linked-list]({{ site.baseurl }}/assets/so-you-want-to-build-a-search-engine/cosine.png)
 
 Plugging in our numbers reveals a cosine similarity of .76.
 

@@ -95,11 +95,11 @@ end
 
 Navigating to `/flipper` will now display a list of features:
 
-![flipper-ui-features](/assets/middleware-audit/flipper-ui-features.png)
+![flipper-ui-features]({{ site.baseurl }}/assets/middleware-audit/flipper-ui-features.png)
 
 Clicking into one of those features will take users to a page for managing that feature:
 
-![flipper-ui-features](/assets/middleware-audit/flipper-ui-feature.png)
+![flipper-ui-features]({{ site.baseurl }}/assets/middleware-audit/flipper-ui-feature.png)
 
 With one line of code you can provide users of your library with a really nice web interface thanks to Rack.  `mount` expects a Rack app, which is exactly what `Flipper::UI.app` returns.  Whenever a request hits `/flipper` we can guarantee that our app's call method will be invoked with a Hash representing the request.
 
@@ -171,7 +171,7 @@ At work we needed an audit trail of any changes made through the Flipper UI.
 
 Clicking the *Enable* button enables a feature for all users:
 
-![enable-button](/assets/middleware-audit/enable-button.png)
+![enable-button]({{ site.baseurl }}/assets/middleware-audit/enable-button.png)
 
 In Chrome's network inspector we see this button makes a:
 
@@ -179,7 +179,7 @@ In Chrome's network inspector we see this button makes a:
 * Body includes some form data `{ action: enable, authenticity_token: *****  }`
 * Responds with a 302 HTTP status code (redirect)
 
-![enable](/assets/middleware-audit/enable-zoom.png)
+![enable]({{ site.baseurl }}/assets/middleware-audit/enable-zoom.png)
 
 We also know we have an authenticated user interacting with the UI so can get the user making these requests from the server.  All of this information combined tells us:
 
@@ -253,7 +253,7 @@ Some notes on the middleware:
 
 Now in our logs we can easily query for the these messages and get an understanding of who's done what within the Flipper UI.
 
-![flipper-ui-features](/assets/middleware-audit/logentries.png)
+![flipper-ui-features]({{ site.baseurl }}/assets/middleware-audit/logentries.png)
 *Logentries' [advanced LEQL](https://docs.logentries.com/docs/search)*
 
 I always find it useful connecting the theory with real-world examples.  Hopefully this gives you just a bit more understanding of your Rack applications.

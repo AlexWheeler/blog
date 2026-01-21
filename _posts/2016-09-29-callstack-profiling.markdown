@@ -1,12 +1,12 @@
 We recently had [Bryan Helmkamp](https://twitter.com/brynary), Code Climate founder and CEO, drop by the office and give a talk on what makes code good code - a subject he’s pretty knowledgeable on having spent the last few years building a very popular static code analysis tool that your team might even be using. One of his coolest slides was a graph of what exactly defines technical debt. Bryan’s definition of this term we hear all too often is summed up in his slide found below.
 
-![technical drift](/assets/callstack-profiling/technical-drift.png)
+![technical drift]({{ site.baseurl }}/assets/callstack-profiling/technical-drift.png)
 
  The x-axis is the lifetime of some piece of code. The y-axis is the current business domain. You can see when the code was written the business domain and the code aligned perfectly. Over time business goals shift, while existing code remains unchanged. The difference is technical debt. The only way to decrease technical debt is to better align code with the current business domain.
 
 As our users have been busy adding data points, we’ve been busy adding code - lots of code. Going off of Brian’s interpretation of technical debt its pretty clear that, like any growing application, we’ve racked up some debt ourselves. In this post I’d like to walk through a recent adventure of mine descending down the deep rabbit hole of performance tuning.  Along the way we’ll go over some of the tools I’ve picked up along the path to the automated synchronization of VTS clients’ 3 billion square feet, but who’s counting? 😉
 
-![diff](/assets/callstack-profiling/diff.png)
+![diff]({{ site.baseurl }}/assets/callstack-profiling/diff.png)
 
 One particular space my team, integrations, spends a majority of its time is building out our portfolio import infrastructure. This covers the onboarding of new client’s portfolios, updating existing clients’ portfolio acquisitions, as well as an ongoing technical effort to ensure VTS data reflects actions taken in any of the industry’s leading ERP systems, namely Yardi, MRI, JD Edwards, etc. It also means a constant tug-of-war between integrations, product, and sales around what data points our imports support.  As Bryan reassured us, business domains change over time. As we’re heads down cranking on the integration infrastructure other engineering squads are tackling their respective features, consistently adding more data and metrics our users require access to. What started as a basic rent roll:
 
@@ -80,7 +80,7 @@ With the profiler in place we can run our program as normal and analyze the resu
 
 `stackprof tmp/load_db.dump --text --limit 5`
 
-![output](/assets/callstack-profiling/output.png)
+![output]({{ site.baseurl }}/assets/callstack-profiling/output.png)
 
 **Refactoring**
 
@@ -126,7 +126,7 @@ end
 
 Calling each function 100 times with an empty string produces the following results.
 
-![output 2](/assets/callstack-profiling/output2.png)
+![output 2]({{ site.baseurl }}/assets/callstack-profiling/output2.png)
 
 This tell us `without_rescue` took a total of .000022 seconds (.022ms)  to run 100 times, while `with_rescue` ran in .000791 seconds (0.791ms) .  Clearly, avoiding the exception using `without_rescue` is faster, but only by 0.766ms faster, so who cares?  Does it really matter that we can save ~half a ms with our new implementation? Well, actually we do.  Just as every data point in practice doesn’t happen to be a date, our client portfolios in practice don’t happen to pass only 100 values through this little function.  Think of your basic spreadsheet.  You might easily have 20,000 rows and 100 columns totaling 2,000,000 cells - all of which will be passed through this little function.  Let’s rerun this import using a more realistic number, say 2,000,000, still well below production loads, but enough to give us a result that makes more sense to us humans who have an easier time thinking in terms of seconds not thousandths of a second.
 
@@ -144,7 +144,7 @@ Benchmark.bm do |x|
 end
 ```
 
-![output 3](/assets/callstack-profiling/output3.png)
+![output 3]({{ site.baseurl }}/assets/callstack-profiling/output3.png)
 
 Our improved function `without_rescue` took a mere .33 seconds (330ms) versus a whopping 13.26seconds (13260ms) for `with_rescue` to finish!  Now this was only 2 million data points run through a simplified version of our code, but  you can imagine the performance hit we’d take with 5 million or 20 million or 1 billion values passing through this guy.
 

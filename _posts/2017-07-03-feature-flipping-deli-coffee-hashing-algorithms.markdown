@@ -32,7 +32,7 @@ Our computers are great at lots of things. Performing complex calculations, pred
 *side note: You haven’t experienced how dumb these machines really are until
 you’ve had a compiler scream at you for forgetting a semicolon.*
 
-![java error](/assets/feature-flipping-hashing-algorithms/java-error.png)
+![java error]({{ site.baseurl }}/assets/feature-flipping-hashing-algorithms/java-error.png)
 
 Luckily computer scientists have been working on this problem of randomness for a long time and they’ve gotten pretty good at it as demonstrated by the shuffle example. The other day, while reviewing a pull request on a popular open source project I collaborate on, I came across a few lines of code that show a great use case for pseudorandomness.  I figure if I find them cool then you might too.  Let’s walk through this code with the intention that by the end of this post we’ll be equipped with concrete examples as to how us software developers can use pseudorandomness to build software that is *good enough*.
 
@@ -134,11 +134,11 @@ Great that looks about right, but to avoid disappointing statistics professors w
 *note: every element in the array is a sample of 100 calls to open?(0.50) and
 shows the number of times true was returned.*
 
-![result](/assets/feature-flipping-hashing-algorithms/result.png)
+![result]({{ site.baseurl }}/assets/feature-flipping-hashing-algorithms/result.png)
 
 It looks like the majority of the results are ~50, and with a [little more code](https://gist.github.com/AlexWheeler/2733dbbb1670754f3de41873788d9bfb) we get a nice visualization using Ruby’s awesome [Gruff](https://github.com/topfunky/gruff) library.
 
-![chart](/assets/feature-flipping-hashing-algorithms/chart.png)
+![chart]({{ site.baseurl }}/assets/feature-flipping-hashing-algorithms/chart.png)
 
 Let’s also take the average while we’re at it:
 

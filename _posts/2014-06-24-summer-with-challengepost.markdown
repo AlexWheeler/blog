@@ -1,6 +1,6 @@
 *“ChallengePost's mission is to celebrate software and the people who make it.  This mission is firmly rooted in the belief that ordinary people can bring about creative technological solutions to big issues and challenges facing our world.”*
 
-![challengepost](/assets/summer-with-challengepost/challengepost.jpg)
+![challengepost]({{ site.baseurl }}/assets/summer-with-challengepost/challengepost.jpg)
 
 Interning at [ChallengePost](https://devpost.com/) has truly been a dream come true.  I get to work alongside an extremely talented team, ship production code multiple times/day, and and truly be a part of the team.  I’ve been fortunate enough to be a part of an awesome hacker community at BU and Boston in general.  Just about everything I know regarding programming, up until recently, has come from hacking on fun projects with friends and hanging around the generous [Boston Ruby](http://bostonrb.org/) community.  While these experiences have no doubt helped me grow as a developer, there really is nothing that will take your programming skills to the next level like a solid internship working on interesting problems alongside a talented team of passionate developers 40 hours/week.
 

@@ -31,12 +31,12 @@ A constant, `charLimit`, is initialized with a value of 10. A function, `isUnder
 
 You scratch your head, and conclude the language is wrong and can’t do basic arithmetic - Thanks Rob Pike. Until you finally do the reasonable thing and look up the documentation for the [builtin](https://golang.org/pkg/builtin/) package’s len function.
 
-![len-go](/assets/netflix-and-chill/len-go.png)
+![len-go]({{ site.baseurl }}/assets/netflix-and-chill/len-go.png)
 
 
 Aha! When `len` is passed a string it returns the number of bytes in the string and NOT the number of characters - a little different than some other languages you might have experience with, like Ruby’s definition of length defined on the String class.
 
-![len-ruby](/assets/netflix-and-chill/len-ruby.png)
+![len-ruby]({{ site.baseurl }}/assets/netflix-and-chill/len-ruby.png)
 
 So why does this happen? Its actually pretty simple. In Go, all strings are just slices of bytes. So when you take the length of “海洋” its actually taking the length of the slice containing the bytes representing those characters. We can convert the string to its byte slice representation with T(v), which converts the value of v to type T.
 
@@ -95,7 +95,7 @@ Do you remember all those hours spent learning to count?  To tell you the truth 
 
 But, before we go there let’s back up a bit and quickly go over how we got to where we are today.
 
-![caveman](/assets/netflix-and-chill/caveman.png)
+![caveman]({{ site.baseurl }}/assets/netflix-and-chill/caveman.png)
 
 Unary
 
@@ -117,21 +117,21 @@ IIIIIIIIIIIIIIIIIIII
 
 **The Romans**
 
-![roman](/assets/netflix-and-chill/roman.png)
+![roman]({{ site.baseurl }}/assets/netflix-and-chill/roman.png)
 
 Soon enough the world saw civilizations expanding, mathematics and languages developing, and the Roman Empire hell-bent on world domination. The Romans were pretty smart, and one day a whole bunch of them got together and hashed out a wild idea: “Wouldn’t it be rad if we could turn these ticks into unique symbols that better represent their value”.
 
 One could be represented with:
 
-![one](/assets/netflix-and-chill/one.png)
+![one]({{ site.baseurl }}/assets/netflix-and-chill/one.png)
 
 Two could be represented with:
 
-![two](/assets/netflix-and-chill/two.png)
+![two]({{ site.baseurl }}/assets/netflix-and-chill/two.png)
 
 And five could be:
 
-![five](/assets/netflix-and-chill/five.png)
+![five]({{ site.baseurl }}/assets/netflix-and-chill/five.png)
 
 Clearly much easier to work with than their unary alternatives:
 
@@ -141,11 +141,11 @@ Yes, these symbols look a bit cooler and make for some awesome tattoos, but the 
 
 These Roman nerds understood that four is really just one less than five and can be represented by placing the I to the left of V:
 
-![four](/assets/netflix-and-chill/four.png)
+![four]({{ site.baseurl }}/assets/netflix-and-chill/four.png)
 
 Six is really just one more than five and can be represented by placing the I to the right of five:
 
-![six](/assets/netflix-and-chill/six.png)
+![six]({{ site.baseurl }}/assets/netflix-and-chill/six.png)
 
 **Decimal**
 
@@ -155,7 +155,7 @@ Taking influence from the Roman’s numeral system, the decimal system uses some
 
 6,523
 
-![6523](/assets/netflix-and-chill/6523.png)
+![6523]({{ site.baseurl }}/assets/netflix-and-chill/6523.png)
 
 Pictured above is each number with its corresponding order of magnitude based on its position.  Reading this right-to-left using positional notation we could say.
 
@@ -187,7 +187,7 @@ Alright, so that was a pretty fun trip down memory lane, but you’re probably w
 
 *Bi* comes from Latin *binarius*, meaning consisting of two.  Binary has two glyphs, 0 and 1, and like the decimal system, uses the power of positional notation.  In this case its based on multiples of 2, which gives it the name base 2.  Let’s follow the same rules we used before and write some binary.  Below we have the number 38 represented in binary.
 
-![binary-38](/assets/netflix-and-chill/binary-38.png)
+![binary-38]({{ site.baseurl }}/assets/netflix-and-chill/binary-38.png)
 
 Using positional notation to read right-to-left there are:
 
@@ -207,7 +207,7 @@ for a total 38!
 
 What is the maximum number that can be represented in base 2 with 8 positions?
 
-![255](/assets/netflix-and-chill/255.png)
+![255]({{ site.baseurl }}/assets/netflix-and-chill/255.png)
 
 1 one
 
@@ -255,13 +255,13 @@ One of the earliest attempts at character encoding was ASCII, American Standard 
 
 2. Stores each character in memory as its corresponding value from the chart below.
 
-![ascii](/assets/netflix-and-chill/ascii.png)
+![ascii]({{ site.baseurl }}/assets/netflix-and-chill/ascii.png)
 
 Since 128 values can be stored in 7 bits this means that any ASCII character can be stored in 1 byte (with a whole bit to spare since only 7 of the 8 are used).
 
 Let’s look at an example.  Using the chart for reference, lowercase latin a is assigned a value of 97, so a computer encoding text in ASCII will store this character in memory as 01100001 (decimal 97).  My name, “Alex” could be stored as:
 
-![alex](/assets/netflix-and-chill/alex.png)
+![alex]({{ site.baseurl }}/assets/netflix-and-chill/alex.png)
 
 ASCII works great until you remember that there are over 7 billion people on Earth speaking thousands of languages. Since only 7 bits are required to store every ASCII character people realized there’s one leftover bit to do something with.  This extra bit provides 128 more possible characters (2^8). That’s great news, until the Germans decided to use the remaining 128 values to map their own characters, the Russians wanted their own, and the Chinese needed their own as well.  You would have a Spanish program that decided 190 meant ñ, while a Chinese program decided that 190 is obviously 波.  It would be similar to two persons knowing the same language, English for example, but interpreting the meaning of words in completely different ways. The word *happy* to Drew means *firetruck*, while to Willy it means *dog*.  Nonsense.  Someone needed to come up with a common language that all computer programs, no matter what language they were trying to store could correctly translate to the right character given some value.  This is exactly what Unicode has been solving for the past few decades.
 

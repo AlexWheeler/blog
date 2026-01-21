@@ -2,7 +2,7 @@ In my previous post I shared my thoughts on the emergence of tens of thousands o
 
 Most modern APIs follow a RESTful architecture.  REST stands for representational state transfer.  Put simply RESTful architecture makes use of the web’s hypertext transfer protocol’s four main request types, GET PUT POST DELETE on resources.  You can best think of these HTTP requests as verbs acting on some resource (noun) at a given location (server.)  URLs or the things you type into the address bar in your web browser simply direct users to a certain resource.  So when we navigate to a url such as my twitter handle:
 
-![twitter](/assets/twitter.png)
+![twitter]({{ site.baseurl }}/assets/twitter.png)
 
 What we are really doing is sending an HTTP GET (hence the https://) request to the host at twitter.com requesting a resource - the profile for the user ‘askwheeler’.
 
@@ -20,7 +20,7 @@ curl http://echo.httpkit.com
 
 It will return our response:
 
-![httpkit-get](/assets/httpkit-get.png)
+![httpkit-get]({{ site.baseurl }}/assets/httpkit-get.png)
 
 As you can see we simply sent a GET request asking a host “echo.httpkit.com” for the uri located at ’/’
 
@@ -32,7 +32,7 @@ curl http://echo.httpkit.com?key=value
 
 which returns a response of:
 
-![httpkit-kv](/assets/httpkit-kv.png)
+![httpkit-kv]({{ site.baseurl }}/assets/httpkit-kv.png)
 
 You can see that we just sent a GET request to the same host and passed along the parameter “key” with a value of “value”
 
@@ -44,7 +44,7 @@ curl -X POST echo.httpkit.com
 
 which returns:
 
-![httpkit-post](/assets/httpkit-post.png)
+![httpkit-post]({{ site.baseurl }}/assets/httpkit-post.png)
 
 As you can see now the method is a POST request.
 
@@ -56,7 +56,7 @@ curl -H "Authorization: Key9999999999" http://echo.httpkit.com
 
 which we can see will return:
 
-![httpkit-headers](/assets/httpkit-headers.png)
+![httpkit-headers]({{ site.baseurl }}/assets/httpkit-headers.png)
 
 Usually when you are POSTing or PUTing data to a server you will be including data as well as expecting the server to return a certain format, which we can do by combining -X -H and -d (for data).
 
@@ -67,7 +67,7 @@ curl -X PUT -H 'Content-Type: application/json' \
 
 Which returns:
 
-![httpkit-put](/assets/httpkit-put.png)
+![httpkit-put]({{ site.baseurl }}/assets/httpkit-put.png)
 
 This is just a basic intro to all of the possibilities with cURL command, but definitely a great way to get you started on your way to toying with some HTTP requests and working with APIs.  You can find more information at:
 

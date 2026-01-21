@@ -8,4 +8,4 @@ permalink: /about/
 
 This is me and my van on a surf trip in Northern California.
 
-![van](/assets/about/van.jpg)
+![van]({{ site.baseurl }}/assets/about/van.jpg)

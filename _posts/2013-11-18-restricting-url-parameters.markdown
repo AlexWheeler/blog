@@ -2,7 +2,7 @@ I’m working on a job board for Boston area residents to post odd jobs for coll
 
 When a user is filling out the form to post a new job they must decide which category their job falls under. For example if a user needs a student to help them with moving furniture they select the Moving category.  If they need a babysitter for the weekend they select the Child Care category.  Since category is an attribute of a job object I am able to query for jobs according to category.
 
-![category](/assets/job-board-category.png)
+![category]({{ site.baseurl }}/assets/job-board-category.png)
 
 I have a dynamic route at `/:category` that directs users to the index action of the jobs controller and sets `params[:category]` to `/:category`.
 
@@ -14,13 +14,13 @@ match "/:category", to: "jobs#index", as: :category
 
 The header tag for the index view is dynamic to be params[:category].  For example if a user navigates to */Moving* the index view is displayed with header Moving, listing all of the moving jobs.
 
-![moving-index](/assets/job-board-moving-index.png)
+![moving-index]({{ site.baseurl }}/assets/job-board-moving-index.png)
 
 This is great! A user can find jobs based on a certain category by visiting `/:category` and easily tell which jobs they are viewing by looking at the large, bold header or the url. Then I came across a problem.  Since the route and and header tags were dynamic the user could pass any value into the url and my job board had no way of determining if this was a valid category or not.  Users would be directed to a view with a header matching params[:category] whether it was a valid category or not.
 
 Let’s say the user navigated to */Foo*. They would see the index view with a header Foo and a blank table.
 
-![job-board-moving-foo](/assets/job-board-moving-foo.png)
+![job-board-moving-foo]({{ site.baseurl }}/assets/job-board-moving-foo.png)
 
 I needed to come up with a way to validate that a category was valid or not.  My Job Board had to know that *moving* was a valid category and *foo* was not.
 
@@ -46,7 +46,7 @@ I added an array to the index action of the jobs controller, checked to see if t
 
 *not_a_category_error.html.erb*
 
-![error](/assets/job-board-error.png)
+![error]({{ site.baseurl }}/assets/job-board-error.png)
 
 Part II: Refactoring
 

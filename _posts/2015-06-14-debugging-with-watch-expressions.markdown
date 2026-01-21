@@ -2,7 +2,7 @@ I’ve recently found myself deep in the depths of JavaScript land.  Catalog is 
 
 Unlike Hollywood would like us to believe…
 
-![hollywood](/assets/debugging-with-watch-expressions/hollywood.gif)
+![hollywood]({{ site.baseurl }}/assets/debugging-with-watch-expressions/hollywood.gif)
 
 most of our time as developers is not actually spent writing new code, but rather debugging/refactoring existing code.  The majority of bugs are introduced when some value is not what we expected it to be at a certain point in a program.  Perhaps we were positive that function `alexIsAwesome() {}` would always return true, but returned false, or maybe we were sure a user would never click our button more than 10 times, but sure enough someone did (*cough screw this guy *cough).  This wouldn’t be a big problem, however we forgot to account for numbers larger than 10 so now we have a bug to hunt!  How do you track down these errors?  The most straight-forward way would be to `console.log()` the value of some variable at various points in the program and see how the value changes.  You’ve undoubtedly done this before.
 
@@ -75,7 +75,7 @@ req.onreadystatechange = function() {
 
 As our request is sent to the Rails API, the request object (req) goes through a series of state changes that range from 0 - 4.
 
-![readystate](/assets/debugging-with-watch-expressions/readystate.png)
+![readystate]({{ site.baseurl }}/assets/debugging-with-watch-expressions/readystate.png)
 
 *source: [https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest)*
 
@@ -85,11 +85,11 @@ So, whenever the `readyState` changes we check to see if the status is 200 (mean
 
 Registering with new credentials we see the following logged in the dev console.
 
-![console1](/assets/debugging-with-watch-expressions/console1.png)
+![console1]({{ site.baseurl }}/assets/debugging-with-watch-expressions/console1.png)
 
 Sweet, registration was successful, our API returned a 200 status, and the chrome extension saved the userId.  But notice the 2 next to set telling us that this message was logged twice (that’s strange).  Now let’s make sure our errors are working correctly.
 
-![conflict](/assets/debugging-with-watch-expressions/conflict.png)
+![conflict]({{ site.baseurl }}/assets/debugging-with-watch-expressions/conflict.png)
 
 Trying to register the same email gives us the correct errors.  But wait!  Once again the message was logged not once, but twice! Oh the ~~hell~~ fun that is asynchronous JavaScript.
 
@@ -97,11 +97,11 @@ Time for some debugging.  As mentioned earlier we could `console.log()` the valu
 
 To the right of the error message chrome tells us what file, followed by what line of code caused the logged message.  In this case the 409 response resulted from line 23 of login.js, and the logged response messages are both from line 18.  Chrome makes these file/line numbers links - thanks Chrome Team.  Clicking on *login.js:18* takes us to the actual script downloaded from our server.
 
-![sources1](/assets/debugging-with-watch-expressions/sources1.png)
+![sources1]({{ site.baseurl }}/assets/debugging-with-watch-expressions/sources1.png)
 
 Expanding this tab you’ll notice another panel which enables us developers to actually run and interact with the code!  We can change values, add variables, examine values, and do whatever it is we’d like, all while watching it run in the context of the current web page.  Pretty rad!
 
-![sources2](/assets/debugging-with-watch-expressions/sources2.png)
+![sources2]({{ site.baseurl }}/assets/debugging-with-watch-expressions/sources2.png)
 
 There are many features to the Sources panel, but let’s focus on two very useful ones - Breakpoints and Watch Expressions.
 
@@ -113,34 +113,34 @@ These two features combine to provide a very powerful tool.
 
 Referencing the `XMLHttpRequest` API once again it looks like the status is already available when the request object is in state 2, while the responseText is partially downloaded by state 3.
 
-![readystate](/assets/debugging-with-watch-expressions/readystate.png)
+![readystate]({{ site.baseurl }}/assets/debugging-with-watch-expressions/readystate.png)
 
 Let’s debug the error case, which is displaying error messages twice.  We set a breakpoint at  line 18 (by simply clicking 18 on the left panel) inside the else clause so that execution will stop each time this line of code is run.
 
-![breakpoint1](/assets/debugging-with-watch-expressions/breakpoint1.png)
+![breakpoint1]({{ site.baseurl }}/assets/debugging-with-watch-expressions/breakpoint1.png)
 
 Now we’re ready to set our Watch Expressions.  I’m interested in the values of the requests object’s `readyState` and `status` so I’ll add these to the Watch Expressions.
 
-![breakpoint2](/assets/debugging-with-watch-expressions/breakpoint2.png)
+![breakpoint2]({{ site.baseurl }}/assets/debugging-with-watch-expressions/breakpoint2.png)
 
 Before any code is executed the two values are both undefined, however we’ll soon see that these will change as we interact with the page.  Filling in an email/password that is already taken and clicking Sign Up will kick off the JavaScript.
 
-![debugger1](/assets/debugging-with-watch-expressions/debugger1.png)
+![debugger1]({{ site.baseurl }}/assets/debugging-with-watch-expressions/debugger1.png)
 
 Our breakpoint was triggered and the debugger paused execution.  it is easy to see that `readyState == 2` and `status == 409`.  Clicking the continue button will continue the execution of the script.
 
-![debugger2](/assets/debugging-with-watch-expressions/debugger2.png)
+![debugger2]({{ site.baseurl }}/assets/debugging-with-watch-expressions/debugger2.png)
 
 Sweet, looks like the request object’s `status` is still 409, however its `readyState` is now 3!  Let’s continue.
 
-![debugger3](/assets/debugging-with-watch-expressions/debugger3.png)
+![debugger3]({{ site.baseurl }}/assets/debugging-with-watch-expressions/debugger3.png)
 
 At this point the request’s `readyState` is 4 telling us the operation is complete, and with this we have found the bug, which requires a very simple fix.  In the function body we must not only check for the `status`, but also make sure the request object is in `readyState` 4 before executing any code!  Adding this to our script and removing the breakpoint:
 
-![sources3](/assets/debugging-with-watch-expressions/sources3.png)
+![sources3]({{ site.baseurl }}/assets/debugging-with-watch-expressions/sources3.png)
 
 We get the correct output of only one response message being logged!
 
-![conflict2](/assets/debugging-with-watch-expressions/conflict2.png)
+![conflict2]({{ site.baseurl }}/assets/debugging-with-watch-expressions/conflict2.png)
 
 Now we can move on to the fun parts of updating the UI to notify the user they need to try a different email, however this is a whole different blog post in itself and I’ve finished my beer.  This post only scratches the surface on the rich set of debugging tools Chrome provides web developers and I hope to cover some more in the future.  Using these tools will no doubt save you hours of debugging in the long run, keep you from polluting your codebase with the dreaded `console.log()`, and possibly allow you to come out victorious against this thing they call JavaScript.

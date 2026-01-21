@@ -1,13 +1,13 @@
 *“ChallengePost’s mission is to celebrate software and the people who make it.  This mission is firmly rooted in the belief that ordinary people can bring about creative technological solutions to big issues and challenges facing our world.”*
 
-![arduino1](/assets/hacking-the-office/arduino1.jpg)
+![arduino1]({{ site.baseurl }}/assets/hacking-the-office/arduino1.jpg)
 
 Seeing that we are a hackathon platform, it is nearly impossible to spend a day at the ChallengePost offices without hearing about some exciting hack that a team member or one of our awesome community members has created.  While most of our team is located in New York City we also have a few awesome remote team members.  Yes, our remote team is spread across the country, but they are still just as involved in everyday CP activities as any other team member.  Between attending meetings via google hangouts and actively participating in hilarious conversations on our various Slack channels it is pretty easy to forget that they could be in a different time zone.
 
 One team member that is not working remotely, however, is our developer evangelist - Neal Shyam.  Neal is a true hacker.  When he isn’t highlighting epic open source projects on his blog, he’s most likely adding to his ever-growing collection of chrome extensions and various other hacks.  When one of our amazing Project Manager, Serena, made the transition to remotely working form Boulder, CO, Neal, in true hacker fashion, wasted no time in providing a solution to quickly reaching Serena.  And yes, it did involve a chrome extension.  Click the Serena button in your browser and a Hangout instantly begins - epic.
 
 
-![toolbar](/assets/hacking-the-office/toolbar.png)
+![toolbar]({{ site.baseurl }}/assets/hacking-the-office/toolbar.png)
 
 After a week or so of playing with the button I got to thinking about how cool it would be to have a physical call Serena button.  I had been messing around with my new Arduino for the past few weeks and after chatting with the team, we decided this would make an awesome project. This leads us to version 2.0 of the Call Serena chrome extension - the Call Serena Button.
 
@@ -23,7 +23,7 @@ Bridging the gap between hardware and web development is something I’ve become
 
 The Arduino is a microcontroller board with 14 digital input/output pins, 6 analog inputs, USB connection, and power jack.  In other words it is a small computer capable of big things.
 
-![arduino2](/assets/hacking-the-office/arduino2.jpg)
+![arduino2]({{ site.baseurl }}/assets/hacking-the-office/arduino2.jpg)
 
 There are two main ways to build on top of Chrome - Extensions and Packaged Apps.
 
@@ -35,11 +35,11 @@ The best way to fully understand how everything ties together is to walk through
 
 At the top of the Arduino we have our USB cable, which also serves as the power source while connected.  On the left side of the board we have two wires.  A red wire is connected to 5v (providing the power) and a black wire is connected to GND, which stands for ground.
 
-![arduino3](/assets/hacking-the-office/arduino3.jpg)
+![arduino3]({{ site.baseurl }}/assets/hacking-the-office/arduino3.jpg)
 
 On the breadboard you’ll notice we have a large red button, which when pressed completes the circuit.  Between our button and ground we have an orange wire, which is connected to digital input 7 on the Arduino.  We will read from this pin to know when the circuit has been completed.
 
-![arduino1](/assets/hacking-the-office/arduino4.jpg)
+![arduino1]({{ site.baseurl }}/assets/hacking-the-office/arduino4.jpg)
 
 Every Arduino sketch needs a setup and loop function.  On line 1 and 2 we declare two variables.  We give led a value of 7 and val a value of -1. In our setup function, on line 5, we open a serial port and set the data rate to 9600 bits/second.  We then use an Arduino function pinMode to set pin 7 to INPUT, since we’re going to want to read its input.  Once an Arduino sketch is uploaded to the board it runs a continuous loop.  Every time the loop runs we read pin 7 to check to see if it has been set to 1 indicating HIGH.  If this is true we know the circuit has been completed, indicating the button was pressed, and therefore write two bytes (“HI”) to our serial connection and delay 5000 millis  ~ 5 seconds - a cheap way of debouncing.  This is it for the Arduino.  Now we can turn our attention to the Packaged App - where most of the magic happens.
 
@@ -168,7 +168,7 @@ When the app is launched background.js is executed, which opens window.html, thu
 
 The chrome serial API provides many useful methods that we take advantage of to get our Arduino communicating with our Packaged App. Any method prefixed by chrome.serial is provided by the API.  `getDevices` executes first and takes a callback parameter we’ve named ports since it is an array of all available ports.  Next `getPortPaths` is called, passing in the ports array, setting the div with id ‘serial-port’ to the port path - dev/tty.usbmodemfa131.
 
-![arduino1](/assets/hacking-the-office/window.png)
+![arduino1]({{ site.baseurl }}/assets/hacking-the-office/window.png)
 
 Once this function is done executing `openPort` is called.  This function grabs the port path from the div and attaches it to a variable, `connectedPort`.  We then connect to this port with `connect`, which takes two arguments,
 

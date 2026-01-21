@@ -1,4 +1,4 @@
-![starbucks](/assets/funny-money-++/starbucks.png)
+![starbucks]({{ site.baseurl }}/assets/funny-money-++/starbucks.png)
 
 *"I'm sorry, but you’re out of convenience points".*
 
@@ -24,7 +24,7 @@ union in hot pursuit?*
 
 While BU makes it pretty damn difficult to get your caffeine fix, they couldn’t make it easier to charge your parents’ credit cards.  All you need to do is log into your account and select how much money you’d like to add.  $25.00, $50.00, $75.00, $100.00 …  wait a minute.  My espresso costs no more than $3.00 and you’re telling me the smallest amount I can add is $25.00?  This can’t be right.  Maybe the *More Information* link in the footer of the page will explain this nonsense.
 
-![rules](/assets/funny-money-++/rules.png)
+![rules]({{ site.baseurl }}/assets/funny-money-++/rules.png)
 
 
 1. "..students may only charge up to $1,500 to their student accounts." – I need to temporarily relieve my caffeine addiction, not buy a new rolex.
@@ -57,7 +57,7 @@ All forms are denoted by a `<form>` element.  The *action* attribute tells the f
 
 *actual form source:*
 
-![html](/assets/funny-money-++/html.png)
+![html]({{ site.baseurl }}/assets/funny-money-++/html.png)
 
 Scrolling through the option elements it turns out, as expected, each option is incremented by $25.00, making it impossible to submit any value that isn’t a multiple of 25 , right?  Well, not so fast.  We’re developers, and as developers the internet is our playground, so let’s have a little fun.
 
@@ -93,7 +93,7 @@ If you’ve ever attempted to buy anything online you have most likely experienc
 
 Anwyays, let’s get back to the problem at hand.  All we want is the ability to add any amount of money we’d like to our student account.  Let’s begin with $1.00.  So far, we’ve found a form for submitting data to the server.  It looks like a typical HTML form, and contains a number of option elements that allow users to submit dollar amounts - multiples of 25.  We still have one element remaining that needs to be inspected - the submit button.  Opening our developer console, we take one last dive into the source code.  And behold, the next clue!  Reading from left-to-right, the input element has its required attributes:
 
-![input](/assets/funny-money-++/input.png)
+![input]({{ site.baseurl }}/assets/funny-money-++/input.png)
 
 `type="button" value="PURCHASE"`
 
@@ -107,9 +107,9 @@ A javascript event handler!  Without going into detail, this is a way to tell th
 
 If only we could find out what `CheckSelect()` actually does.  Well, lucky for us, in order for the browser to execute any JavaScript, it must first be downloaded from the server.  Therefore, we have actually, whether we wanted to or not, downloaded the file containing this function.  We just need to find it.  The first place to look is the Sources tab of Chrome’s Developer Tools.  This tab lets us see every script that’s a part of the current page.  Looking through the scripts, we soon notice *1428278026ModuleName=conv_pt_pch1.pl* (From the .pl file extension we can infer it is a Perl script - which might tell us more about the developers than the actual software lol).  What do you know, its not minified or obfuscated!  Doing a quick CMD-F search for `CheckSelect()` takes us directly to the function definition:
 
-![script1](/assets/funny-money-++/script1.png)
+![script1]({{ site.baseurl }}/assets/funny-money-++/script1.png)
 
-![script2](/assets/funny-money-++/script2.png)
+![script2]({{ site.baseurl }}/assets/funny-money-++/script2.png)
 
 At first, we’d most likely think an event handler attached to a form submit would handle some sort of client-size sanitization or AJAX request, but upon closer inspection this is not the case for our button.  Before digging deeper and figuring out what `document.SelectForm.convptslt.selectedIndex` even returns, we can take a look at this function and conclude that all it does is make sure that the user has indeed selected a dollar amount before submitting the form.
 
@@ -117,11 +117,11 @@ Any developer familiar with JavaScript would understand that `document.SelectFor
 
 1. selectedIndex
 
-    ![console1](/assets/funny-money-++/console1.png)
+    ![console1]({{ site.baseurl }}/assets/funny-money-++/console1.png)
 
 2.  selectedOptions
 
-    ![console2](/assets/funny-money-++/console2.png)
+    ![console2]({{ site.baseurl }}/assets/funny-money-++/console2.png)
 
 These attributes simply reflect which option the user has selected.  Looking back at the `CheckSelect()` function:
 
@@ -138,7 +138,7 @@ This confirms that all this function does is confirm the user has selected an op
 
 I don’t know about you, but I’m having a hell of a time.  If we’re going to throw some data at this thing we might as well go big - like really fucking big.  Given a BU student has added $0.00 to their account for this semester, the maximum they should be allowed to add is $1500.00.  How about we double this amount?No, fuck that we said we’re going big.  Let’s 67x this amount and chuck $100k at it - almost enough to pay for two semesters at BU with convenience points (haha).  And this is exactly what we’ll do.  Changing an input value to $100000.00, highlighting it to set SelectedOptions to it’s value, holding our breath, we’ll click PURCHASE..
 
-![error](/assets/funny-money-++/error.png)
+![error]({{ site.baseurl }}/assets/funny-money-++/error.png)
 
 `HONS084: System error, #PURCHASE-AMOUNT expects a length of 8 but received 10. Parm num = 2 . Indexes=0 , 0, 0`
 
@@ -163,13 +163,13 @@ The error message says it expected a length of 10, but received 8.  Therefore, l
 
 Holding our breath once again…
 
-![success](/assets/funny-money-++/success.png)
+![success]({{ site.baseurl }}/assets/funny-money-++/success.png)
 
 fml.
 
 "1000000" without dollar sign and period is also <= 8 characters.  I’d love to try this amount, but at the moment its not really possible.
 
-![limit](/assets/funny-money-++/limit.png)
+![limit]({{ site.baseurl }}/assets/funny-money-++/limit.png)
 
 Stay Curious.
 

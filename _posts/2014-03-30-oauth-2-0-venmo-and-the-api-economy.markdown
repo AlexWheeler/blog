@@ -18,7 +18,7 @@ OAuth is an interaction between three things:
 
 Here’s an overview of the OAuth 2.0 flow before I break it down:
 
-![Oauth](/assets/oauth-2-0-venmo-and-the-api-economy/oauth.png)
+![Oauth]({{ site.baseurl }}/assets/oauth-2-0-venmo-and-the-api-economy/oauth.png)
 
 Steps:
 
@@ -36,7 +36,7 @@ Steps:
 
 This link will take user to this page where they will grant our application access to their account:
 
-![venmo](/assets/oauth-2-0-venmo-and-the-api-economy/venmo.png)
+![venmo]({{ site.baseurl }}/assets/oauth-2-0-venmo-and-the-api-economy/venmo.png)
 
 3. Define a callback URL: You must define a callback url that you would like to user to be redirected to after successfully signing in and granting access to their information - the access code will be sent back with this response as a query string parameter.  You will need to exchange this code for an access token, which will grant you access to the user’s information.
 

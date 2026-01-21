@@ -96,7 +96,7 @@ To break this down a little:
 
 your */spec* directory should look similar to this.  */vcr_cassettes* willin itially be empty until we run our first test using VCR.
 
-![dir 1](/assets/recording-test-suite-interactions-with-vcr-gem/cassettes-dir-1.png)
+![dir 1]({{ site.baseurl }}/assets/recording-test-suite-interactions-with-vcr-gem/cassettes-dir-1.png)
 
 5.) Run test
 
@@ -119,13 +119,13 @@ end
 
 Whenever you need to use VCR simply wrap your test in this block.  The `use_cassette` method simply takes one parameter - whatever you would like to name your cassette.  The first time you run your test it will send a request to the external service and record this response in a file named whatever you passed in as the parameter to `use_cassette` and save it under */spec/vcr_cassettes*.  Run the test and you should now see a cassette file has been created.
 
-![dir 2](/assets/recording-test-suite-interactions-with-vcr-gem/cassettes-dir-2.png)
+![dir 2]({{ site.baseurl }}/assets/recording-test-suite-interactions-with-vcr-gem/cassettes-dir-2.png)
 
 The file will look something like this:
 
 *twilio_request_message.yml*
 
-![twilio request yaml](/assets/recording-test-suite-interactions-with-vcr-gem/twilio-request-yaml.png)
+![twilio request yaml]({{ site.baseurl }}/assets/recording-test-suite-interactions-with-vcr-gem/twilio-request-yaml.png)
 
 Now anytime you run this test instead of calling the remote service your test suite will simply use this recorded response.  That’s really all there is to it.  Happy Hacking!
 

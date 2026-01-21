@@ -1,6 +1,6 @@
 Github user supersam654 recently opened a great [issue](https://github.com/jnunemaker/flipper/issues/405) on the Flipper repo after running into trouble trying to register a group using Ruby's `&:method` shorthand.
 
-![issue](/assets/ruby-arity-symbol-proc/issue.png)
+![issue]({{ site.baseurl }}/assets/ruby-arity-symbol-proc/issue.png)
 
 Groups allow enabling features based on the return value of a block, which is passed the actor when checking for enabledness.
 
@@ -256,9 +256,9 @@ end
 
 Tim, being the legend that he is opened a PR using Sam's (also total legend - both of whom I've never actually met, but I'm sure they're legends) proposed idea to take the absolute value of the arity in match.
 
-![arity](/assets/ruby-arity-symbol-proc/abs-arity.png)
+![arity]({{ site.baseurl }}/assets/ruby-arity-symbol-proc/abs-arity.png)
 
-![pr](/assets/ruby-arity-symbol-proc/pr.png)
+![pr]({{ site.baseurl }}/assets/ruby-arity-symbol-proc/pr.png)
 
 Since this has been merged it should be going out in the next release after 0.16.2.  As always check out the
 [Changelog](https://github.com/jnunemaker/flipper/blob/master/Changelog.md) to be sure.

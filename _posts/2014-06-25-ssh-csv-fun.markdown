@@ -1,4 +1,4 @@
-![datacenter](/assets/ssh-csv-fun/datacenter.png)
+![datacenter]({{ site.baseurl }}/assets/ssh-csv-fun/datacenter.png)
 
 One of the most interesting parts about working at a company vs. hacking on side projects is that you are truly working on a team.  Yes, you could argue that participating in hackathons with friends counts as working on a team and I agree that it does, however, most companies need much more than just engineers to build a product.  Without a talented sales team, marketing team, etc.  working alongside an engineering team it would be near impossible to grow a company.  This is why ChallengePost feels like a true team to me.  Yes, there is an amazing engineering team, however there is a just as talented number of teams working every day on the business side of the product who have shaped ChallengePost into the company it is today.
 
@@ -15,10 +15,10 @@ First off, what is a server? Well, understanding servers is actually pretty simp
 First you must generate your keys, which is done by using a Unix utility called
 ssh-keygen from your command line.
 
-![ssh-keygen](/assets/ssh-csv-fun/ssh-keygen.png)
+![ssh-keygen]({{ site.baseurl }}/assets/ssh-csv-fun/ssh-keygen.png)
 
 
-![public-key](/assets/ssh-csv-fun/public-key.png)
+![public-key]({{ site.baseurl }}/assets/ssh-csv-fun/public-key.png)
 
 Choose a passphrase and a file to save them into.  You should now have a private and public key stored in ~/.ssh/
 
@@ -28,11 +28,11 @@ Given that you have a server living somewhere on the internet You will give your
 
 The server will ask you for your passphrase:
 
-![passphrase](/assets/ssh-csv-fun/passphrase.png)
+![passphrase]({{ site.baseurl }}/assets/ssh-csv-fun/passphrase.png)
 
 If you have entered the correct passhphrase the server will generate and send a large encrypted string to your computer that only the corresponding private key knows how to successfully decrypt.  When your private key accomplishes this task you are succesfully given access to the server and can navigate it from the command line just as you would your PC.
 
-![identity-added](/assets/ssh-csv-fun/identity-added.png)
+![identity-added]({{ site.baseurl }}/assets/ssh-csv-fun/identity-added.png)
 
 So, now for the fun stuff.  Like I said, many times throughout the week the business team asks for data.  Many of these requests are the same exports every week and for those we have saved the scripts to do so, however a lot of the time we must write these scripts ourselves.  I’ll go over one example of something I had to do the other day.  My Product Manager needed a had a CSV file with lots of rows of software projects that users had uploaded.  We needed to go into one of our staging servers, find all the projects and get some other info about them and save a new CSV file with the new output.  Sounds exactly like something a computer would be good at.  From a high level we already know a few things.
 
@@ -46,7 +46,7 @@ The plan: read in the original CSV file, parse each row for a unique value, quer
 
 Let’s pretend the original CSV looks like this: each row is a different project object and column B is the unique value we can use to query by (could be a name, id, etc.)
 
-![csv](/assets/ssh-csv-fun/csv.png)
+![csv]({{ site.baseurl }}/assets/ssh-csv-fun/csv.png)
 
 First thing is to get this file on our server so that we can read from it.  First thing you’re going to need to do is to cd into the directory that your app is stored in on your server.  Once in this directory you can use a cool tool called [Wget](https://www.gnu.org/software/wget/) - a cool tool for retrieving files using HTTP, HTTPS, and FTP that can be run from your command line.
 
@@ -75,7 +75,7 @@ All this does is create a new empty array called unique_values.  The first block
 
 In the second block we create and open a new file called new.csv in write mode.  We iterate over all of the unique_values and query our database for software objects with this value.  We place three attributes of each software object into an array and each time the loop runs it will add these to our new csv file (each array in csv is a row).  Open up your rails console and run this file.  We should now have a file named new.csv saved onto our server that looks something like this (given columns A and B we wanted the same two values the original CSV gave us)
 
-![csv2](/assets/ssh-csv-fun/csv2.png)
+![csv2]({{ site.baseurl }}/assets/ssh-csv-fun/csv2.png)
 
 Now we just need to get the file back onto our PC so we can send it back to the business team.  A simple and secure way to do this is with a protocol called Secure copy or SCP.  From the command line in your root directory on your PC enter scp followed by your username and ip address of your server, the path to the file you would like to transfer, and the path to where you would like to save this on your PC.
 

@@ -54,7 +54,7 @@ end
 ```
 It has two hidden fields, which aren’t visible to the user.  The form, seen below, actually just looks like a button, however it is indeed a form.
 
-![Geofun form](/assets/geofun.png){: .center-image }
+![Geofun form]({{ site.baseurl }}/assets/geofun.png){: .center-image }
 
 The *To* value is set by accessing the query string the original text message body appended on to the link that the friend opens.  The *From* value is always going to be my Twilio Number so this value is hardcoded (you don’t have the account_sid or auth_token so I’m not too worried).  They body is the text message body that will be sent.  In my case, I want it to be a map with the user’s location marked with a pin.  Remember how I stated how when the user opens the page it executes some JS code?  Well we’re now in a position to tie everything together and explain this in greater detail.  When the friend opens the text message link JavaScript code is executed that retrieves the device’s latitude and longitude via the HTML5 geolocation device API, sends the lat/long to Google Maps API, which returns a link to a google map with the user’s location marked on it. Then I take this url and make an AJAX request to the Bit.ly API to shorten the url since Twilio only allows text message bodies < 160 characters and the url returned by Google Maps is very long.  Now I have the data stored in a JS variable and just need to get it in the form somehow - easy.
 

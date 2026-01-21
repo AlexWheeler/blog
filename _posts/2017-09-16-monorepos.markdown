@@ -26,7 +26,7 @@ At this point in the story Orbyt opens a really great issue on the Flipper repo,
 
 Browsing through the [Flipper](https://github.com/jnunemaker/flipper) repo you see it right there, [Flipper::Adapters::ActiveRecord](https://github.com/jnunemaker/flipper/blob/master/lib/flipper/adapters/active_record.rb).
 
-![active_record](/assets/monorepos/active_record_full.png)
+![active_record]({{ site.baseurl }}/assets/monorepos/active_record_full.png)
 
 We've all been here.  You're installing unfamiliar software that you expect to work, but for whatever reason it isn't.  Is this library broken?  Is my computer broken? What day is it?
 
@@ -46,12 +46,12 @@ Change into the flipper directory
 
 and list the adapters:
 
-![local_adapters](/assets/monorepos/local_adapters.png)
+![local_adapters]({{ site.baseurl }}/assets/monorepos/local_adapters.png)
 
 We see 7 ruby files corresponding to 7 adapters.  Let's compare this with the adapters in the Flipper
 repo on GitHub:
 
-![remote_adapters](/assets/monorepos/remote_adapters.png)
+![remote_adapters]({{ site.baseurl }}/assets/monorepos/remote_adapters.png)
 
 The Flipper we downloaded only has 7 adapters, none of which define `Flipper::Adapters::ActiveRecord`, while the Github repo lists 14.
 
@@ -175,7 +175,7 @@ The gemspec is a file stored in the root directory of a gem that specifies infor
 
 You'll find Flipper's gemspec, like all gemspecs, in the root directory.  You'll also notice some other gemspecs that have names resembling many of the adapters mentioned earlier.  You might see where we're headed with this...
 
-![gemspecs](/assets/monorepos/gemspecs.png)
+![gemspecs]({{ site.baseurl }}/assets/monorepos/gemspecs.png)
 
 Opening flipper.gemspec and removing unnecessary code for this conversation we'll focus on how Flipper is able to ignore unnecessary code when packaging the gem.
 

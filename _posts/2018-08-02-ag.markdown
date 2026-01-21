@@ -21,13 +21,13 @@ With one argument Ag recursively searches the current directory for the given pa
 
 `ag Gate`
 
-![ag](/assets/searching/ag.png)
+![ag]({{ site.baseurl }}/assets/searching/ag.png)
 
 Pass it a second argument to recursively search a directory.  This becomes especially useful when working in an opinionated framework like Rails where I know all of my controller code lives under *app/controllers*, specs under *spec/controllers*,  etc.
 
 `ag Gate spec`
 
-![ag](/assets/searching/ag-directory.png)
+![ag]({{ site.baseurl }}/assets/searching/ag-directory.png)
 
 # Whole Word
 
@@ -37,11 +37,11 @@ Often we're searching for a pattern that appears in many different contexts with
 
 *Note how `Gate` is matched, but so is `Flipper::GateNotFound` since it contains `Gate`.*
 
-![ag](/assets/searching/ag.png)
+![ag]({{ site.baseurl }}/assets/searching/ag.png)
 
 `ag -w Gate`
 
-![ag](/assets/searching/whole-word.png)
+![ag]({{ site.baseurl }}/assets/searching/whole-word.png)
 
 # File Type
 
@@ -59,11 +59,11 @@ Ag returns the filename and line matching PATTERN.  Sometimes we just want to li
 
 `ag Gate -l`
 
-![ag](/assets/searching/list.png)
+![ag]({{ site.baseurl }}/assets/searching/list.png)
 
 `ag Gate -l | sort` - *pro tip: who doesn't prefer a sorted list?*
 
-![ag](/assets/searching/ag-list-sort.png)
+![ag]({{ site.baseurl }}/assets/searching/ag-list-sort.png)
 
 # File Pattern
 
@@ -95,11 +95,11 @@ In rails we can get an overview of all defined routes by running the `rake route
 
 `rake routes`
 
-![ag](/assets/searching/rake-routes.png)
+![ag]({{ site.baseurl }}/assets/searching/rake-routes.png)
 
 `rake routes | ag sign_in`
 
-![ag](/assets/searching/rake-routes-ag.png)
+![ag]({{ site.baseurl }}/assets/searching/rake-routes-ag.png)
 
 **Usecase 2:** filtering logs
 
@@ -107,12 +107,12 @@ Have you ever tried to figure out which controllers actions are handling request
 
 `tail -f log/development.log`
 
-![ag](/assets/searching/tail.png)
+![ag]({{ site.baseurl }}/assets/searching/tail.png)
 
 
 `tail -f log/development.log | ag "Processing by"`
 
-![ag](/assets/searching/tail-ag.png)
+![ag]({{ site.baseurl }}/assets/searching/tail-ag.png)
 
 **Usecase 3:** killing processes
 
@@ -120,11 +120,11 @@ Every once in a while I'll try to shut down an irb session by sending a SIGINT v
 
 Get the PID by listing running processes with `ps -ax`
 
-![ag](/assets/searching/ps.png)
+![ag]({{ site.baseurl }}/assets/searching/ps.png)
 
 Filter the results for any irb processes `ps -ax | ag irb`
 
-![ag](/assets/searching/irb.png)
+![ag]({{ site.baseurl }}/assets/searching/irb.png)
 
 `kill 78154`
 
@@ -140,7 +140,7 @@ Let's search for every reference to the `Feature` class in files ending in *adap
 
 `ag -w -G "(adapter|store).rb$"`
 
-![ag](/assets/searching/regex.png)
+![ag]({{ site.baseurl }}/assets/searching/regex.png)
 
 # Context
 
