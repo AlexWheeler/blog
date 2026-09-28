@@ -1,3 +1,8 @@
+---
+title: "Funny Money++"
+categories: programming
+---
+
 ![starbucks]({{ site.baseurl }}/assets/funny-money-++/starbucks.png)
 
 *"I'm sorry, but you’re out of convenience points".*

@@ -1,3 +1,8 @@
+---
+title: "On Adventure and Reaching Out"
+categories: life
+---
+
 I’m currently sitting in my new apartment, watching the sun rise over the monstrous Andes, warming up with a fresh cup of coffee, and wondering how the hell I ended up over 8500 kilometers away from home with a $40,000 grant from the Chilean government. Prior to this adventure I had never been to South America, my Spanish was mediocre at best, and the closest thing I knew to Latin culture was grabbing a breakfast burrito from the local taco stand in my small hometown in Southern California.  I would like to believe that I ended up here by my own doing, like some sort of fearless pirate whose crew had abandoned him. This couldn’t be further from the truth. The reason I’m here has little to do with my own intelligence, grades, or luck. I wouldn’t consider myself a smart person.  My grades are pretty average, and the best luck I’ve recently had was finding 100 pesos on the ground, which at today’s exchange rate could buy me a lollipop. The real reason why I’m here is because of the wisdom, encouragement, and patience of those that I have luckily found myself surrounded by. Steve Jobs put it best when he said “You can’t connect the dots looking forward you can only connect them looking backwards.” So, that is exactly what this post aims to do - connect the dots and make sense of how I ended up here, and hopefully encourage a few others to expand their horizons because it has never been easier.
 
 ## “Where our potential network of friends was once dictated by the number of people that lived in our home town, it is now relative to the number of people on the internet.”

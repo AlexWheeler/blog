@@ -1,3 +1,8 @@
+---
+title: "Our Friend cURL"
+categories: programming
+---
+
 In my previous post I shared my thoughts on the emergence of tens of thousands of APIs that companies are racing to develop in an attempt to see what applications people will be able to build on top of their data or services.  In this post I’d like to share a useful tool known as cURL which allows us to design a request, send it to a server, and inspect the response.
 
 Most modern APIs follow a RESTful architecture.  REST stands for representational state transfer.  Put simply RESTful architecture makes use of the web’s hypertext transfer protocol’s four main request types, GET PUT POST DELETE on resources.  You can best think of these HTTP requests as verbs acting on some resource (noun) at a given location (server.)  URLs or the things you type into the address bar in your web browser simply direct users to a certain resource.  So when we navigate to a url such as my twitter handle:

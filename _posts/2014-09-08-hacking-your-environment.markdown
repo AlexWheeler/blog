@@ -1,3 +1,8 @@
+---
+title: "Hacking Your Environment"
+categories: programming
+---
+
 I’ve recently found myself obsessing over the seemingly infinite ways to hack my environment by extending and improving upon applications I use everyday.  As a college student I find myself using gmail quite often for anything from chatting with professors, to more recently, getting a hold of friends while my phone is broken.  As a developer I tend to use many keyboard shortcuts, both on the web and while crafting code.  When I realized that Gmail’s web version had no logout shortcut I built a simple fix called Gkey, which allows users to logout of gmail by pressing *ctrl-L* - free to download via [Chrome Web Store](https://chrome.google.com/webstore/category/extensions).  This is just one example, but can help get you thinking about ways to extend your apps’ functionality.
 
 Adding a feature or two to a web application by injecting javascript into a page can be really fun, but don’t forget that we are developers, hackers - the architects of the future.  We possess the knowledge and tools to truly change the universe.

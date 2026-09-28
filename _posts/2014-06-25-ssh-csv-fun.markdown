@@ -1,3 +1,8 @@
+---
+title: "SSH + CSV = Fun"
+categories: programming
+---
+
 ![datacenter]({{ site.baseurl }}/assets/ssh-csv-fun/datacenter.png)
 
 One of the most interesting parts about working at a company vs. hacking on side projects is that you are truly working on a team.  Yes, you could argue that participating in hackathons with friends counts as working on a team and I agree that it does, however, most companies need much more than just engineers to build a product.  Without a talented sales team, marketing team, etc.  working alongside an engineering team it would be near impossible to grow a company.  This is why ChallengePost feels like a true team to me.  Yes, there is an amazing engineering team, however there is a just as talented number of teams working every day on the business side of the product who have shaped ChallengePost into the company it is today.

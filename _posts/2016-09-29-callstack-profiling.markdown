@@ -1,3 +1,8 @@
+---
+title: "Callstack Profiling"
+categories: programming
+---
+
 We recently had [Bryan Helmkamp](https://twitter.com/brynary), Code Climate founder and CEO, drop by the office and give a talk on what makes code good code - a subject he’s pretty knowledgeable on having spent the last few years building a very popular static code analysis tool that your team might even be using. One of his coolest slides was a graph of what exactly defines technical debt. Bryan’s definition of this term we hear all too often is summed up in his slide found below.
 
 ![technical drift]({{ site.baseurl }}/assets/callstack-profiling/technical-drift.png)

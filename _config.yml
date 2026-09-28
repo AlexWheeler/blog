@@ -28,6 +28,24 @@ theme: minima
 plugins:
   - jekyll-feed
 
+# Keep post URLs date-based so adding categories doesn't change them.
+permalink: /:year/:month/:day/:title:output_ext
+
+# Every post uses the post layout unless it says otherwise.
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
+# Pages shown in the header, in order.
+header_pages:
+  - programming.md
+  - climbing.md
+  - life.md
+  - about.md
+
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.

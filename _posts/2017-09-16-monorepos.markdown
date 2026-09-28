@@ -1,3 +1,8 @@
+---
+title: "Monorepos"
+categories: programming
+---
+
 Like many technology companies we happily use Git to decentralize our development workflow. Browsing through the VTS organization on Github you’ll notice a similar trend. Each of our repositories tracks one logical project.  This works really well for us and countless other companies around the world.  However, just because this is the optimal way to organize our projects, doesn’t mean its the best approach for every project. The alternative to this approach is the monorepo.
 
 Flipper is a Ruby gem we use extensively at VTS to turn features on or off for a set of users. Like many of our projects, Flipper chose to use Git as a key part of its development workflow, but unlike VTS, its repository is organized as a monorepo. The rest this post we’ll walk through a real-world issue opened on the Flipper repo to answer two important questions — What is a monorepo, and when would I use one?

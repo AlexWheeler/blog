@@ -1,3 +1,8 @@
+---
+title: "Feature Flipping, Deli Coffee, and Hashing Algorithms"
+categories: programming
+---
+
 Life’s full of goods and bads.
 
 Surfing. Good. Warm beer. Bad

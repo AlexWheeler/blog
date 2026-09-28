@@ -1,3 +1,8 @@
+---
+title: "Debugging With Watch Expressions"
+categories: programming
+---
+
 I’ve recently found myself deep in the depths of JavaScript land.  Catalog is a project of mine that has a few moving parts.  It is a chrome extension that allows users to click on a browserAction icon in their toolbar to save or catalog web pages they find interesting or would like to share with friends.  This extension communicates with a Rails API back-end that also serves the Angular.js app, displaying users’ cataloged urls.  These url’s can be favorited, shared, filtered by attributes, etc.  Its very similar to the popular chrome extension/web application Pocket.  Being an avid Pocket user myself, I thought it would be fun to build a public, open-source version of their service while learning Angular.js along the way.  What follows is a story revealing powerful  tools that you, too, can take with you into the trenches of this wild world that is modern-day JavaScript.
 
 Unlike Hollywood would like us to believe…

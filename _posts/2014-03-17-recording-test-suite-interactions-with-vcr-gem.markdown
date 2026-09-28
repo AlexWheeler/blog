@@ -1,3 +1,8 @@
+---
+title: "Recording Test Suite Interactions With the VCR Gem"
+categories: programming
+---
+
 The other night I got the chance to hang out with a few of the developers at Terrible Labs, a local Rails shop here in Boston.  Over the past year or so I’ve gotten to know some of the team pretty well after meeting [Jeremy Weiskotten](https://twitter.com/doctorzaius) at our local Boston Ruby project night, where he sat down and helped me out with some very… VERY simple Ruby questions I had.  I am forever thankful for his patience, encouragement and hilarious tweets.
 
 Since that night the team has been extremely supportive of me stopping by to hangout, work on projects, and get any questions answered I may have.  I really don’t think I can express how thankful I am for their generosity, patience, and support - truly some of the coolest and most genuine people I know.  When I ran into my friend and [Terrible Labs](http://www.terriblelabs.com/) developer [Alex Jarvis](https://twitter.com/AlxJrvs) at last month’s project night he mentioned he wanted to get a group of local ruby developers together to come in for beers, pizza, hacking, and the chance to get some questions answered by himself as well as [Thomas Mayfield](https://twitter.com/thegreatape) and [Jeffrey Chupp](https://twitter.com/semanticart).  I was beyond stoked to say the least.

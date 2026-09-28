@@ -1,3 +1,8 @@
+---
+title: "Netflix and Chill"
+categories: programming
+---
+
 *Note: No prior knowledge of Golang or online dating required for this post*
 
 You’re having so much fun exploring the ins and outs of the Go programming language that you decide its time to finally start working on that social network dating app for meeting surfer chicks you’ve always wanted to build.  While you’re super excited about the seemingly endless list of features you have planned, you’re quickly growing tired of meeting girls on Tinder just to find out that they boogie board. A decision is made to focus on the most important feature and ship an alpha version two weeks from today. The target audience is young, single millennials - a generation completely comfortable with experiencing the world through a 2.5x4.5 inch digital screen. Although our parents had to pick up the phone and call a potential date, we’re cool with sending a quick text and ending it with that cute cactus emoji. Because who doesn’t like that thing?

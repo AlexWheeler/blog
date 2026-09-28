@@ -1,3 +1,8 @@
+---
+title: "Design Decisions, Hackathons, and Rails Callbacks"
+categories: programming
+---
+
 ![yhakcs]({{ site.baseurl }}/assets/yhacks.png)
 
 The thought of spending a full twenty-four hours writing code, passing on a good nights sleep, and surviving off of countless cups of coffee may not seem like the most ideal way to spend a weekend in college, but just like anything in life *you can’t knock it until you try it*.  If you have never experienced a hackathon you sure have been missing out on an epic experience.  While these events do offer prizes to teams who successfully build the best project, hackathons are about much more than the prize money.  They are about learning something new, making new friends, and of course scoring backpacks full of free swag from sponsors.  I recently attended Y-Hack, Yale’s first hackathon, and as I expected it turned out to be an awesome time.  Besides walking away with a finished project, I made some awesome friends, learned some new concepts, and witnessed a rap battle at 2 am.  While I could spend hours discussing my thoughts on hackathons that isn’t the goal of this post.  Instead I would like to dedicate the rest of this post to go over a few of the design decisions I found myself having to make in the process of building my application, using Rails’s Callbacks, and some lessons learned.

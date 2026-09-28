@@ -1,3 +1,8 @@
+---
+title: "Passing JavaScript Variables to a Rails Controller"
+categories: programming
+---
+
 *“To the man who only has a hammer, everything he encounters begins to look like a nail.”* - Abraham Harold Maslow
 
 Ruby is an amazing programming language.  It ships with beautiful syntax, an extensive standard library, and more open source libraries  (via gems) than we could ever know what to do with.  However, every job requires different tools, and while there are almost always multiple ways to address a problem, I firmly believe you should make your life easier and pick the right tool for the job at hand. Ruby works great on the server side of most web applications, however when it comes to client-side programming there is no doubt that JavaScript reigns supreme.  Theres a reason it is often referred to as the language of the browser.  An understanding of JavaScript is a must for any modern day web developer and with the emergence of many awesome [HTML5 APIs](http://www.creativebloq.com/html5/developer-s-guide-html5-apis-1122923) you would be missing out on a lot of fun if you didn’t have at least a basic understanding of it.

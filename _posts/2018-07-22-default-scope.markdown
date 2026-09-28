@@ -1,3 +1,8 @@
+---
+title: "Default Scope"
+categories: programming
+---
+
 ActiveRecord's default_scope can be a handy feature for the lazy programmer (A flag I proudly wave).  Rails developers can leverage it to add a default condition that will apply to all queries accessing a given model.  Let's say you're building a news site.  Every time you query for an article you only want to return published articles.  Instead of explicitly filtering by published articles with every query:
 
 ```ruby

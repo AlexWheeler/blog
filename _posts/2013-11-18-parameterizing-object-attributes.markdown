@@ -1,3 +1,8 @@
+---
+title: "Parameterizing Object Attributes"
+categories: programming
+---
+
 I found that querying by category worked great.  The URL for all of the moving jobs was simply */moving*.  But what about the URL for a category that had multiple words separated by spaces?  Would the Home Services be found at */Home* Services.  Unfortunately, the answer is no.  It turns out that when a string gets encoded as a URL all of the spaces get encoded as %20.  If you’re curious you can read here about why this occurs.  [https://tools.ietf.org/html/rfc3986#page-12](https://tools.ietf.org/html/rfc3986#page-12),
 
 ![param query main]({{ site.baseurl }}/assets/param-query-main.png)

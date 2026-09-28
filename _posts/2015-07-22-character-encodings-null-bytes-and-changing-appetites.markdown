@@ -1,3 +1,8 @@
+---
+title: "Character Encodings, Null Bytes, and Changing Appetites"
+categories: programming
+---
+
 ![matrix]({{ site.baseurl }}/assets/character-encodings-null-bytes-and-changing-appetites/matrix.png)
 
 If you do find yourself staring at such a screen of random characters whatever you do don’t panic!  You haven’t entered the matrix.  You’ve simply come across the work of a developer who most likely didn’t have an understanding of character encoding! And today, in 2015, with more than 7 billion persons speaking just over 7000 languages character encoding is a very important concept for any developer to at least have a high-level understanding.

@@ -1,3 +1,8 @@
+---
+title: "Auditing With Rack Middleware"
+categories: programming
+---
+
 # Rack
 
 [Rack](https://github.com/rack/rack) describes itself as a "minimal, modular, and adaptable interface for developing web applications in Ruby".  In layman's terms its just a set of rules that, when followed, allow web servers and web applications to talk to each other.

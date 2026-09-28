@@ -1,3 +1,8 @@
+---
+title: "Summer With ChallengePost"
+categories: life
+---
+
 *“ChallengePost's mission is to celebrate software and the people who make it.  This mission is firmly rooted in the belief that ordinary people can bring about creative technological solutions to big issues and challenges facing our world.”*
 
 ![challengepost]({{ site.baseurl }}/assets/summer-with-challengepost/challengepost.jpg)

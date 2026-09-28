@@ -2,7 +2,9 @@
 layout: post
 title: "Wicked Good Ruby Conf"
 date: 2013-11-08 09:36:14 -0400
-categories: ruby conference
+categories: programming
+tags: [ruby, conference]
+permalink: /ruby/conference/2013/11/08/wicked-good-ruby-conf.html
 ---
 
 The people have spoken. Wicked Good Ruby Conf, Boston’s first annual Ruby conference was a major success. Over the course of two days Rubyists from around the world joined together at the World Trade Center Boston to share ideas, discuss best practices, and have an overall epic time. (did I mention the open bar?) Thanks to the team at EverTrue (you guys rock) I was able to attend and share my experience with you.

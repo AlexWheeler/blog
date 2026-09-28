@@ -1,3 +1,8 @@
+---
+title: "Restricting URL Parameters"
+categories: programming
+---
+
 I’m working on a job board for Boston area residents to post odd jobs for college students to complete.
 
 When a user is filling out the form to post a new job they must decide which category their job falls under. For example if a user needs a student to help them with moving furniture they select the Moving category.  If they need a babysitter for the weekend they select the Child Care category.  Since category is an attribute of a job object I am able to query for jobs according to category.

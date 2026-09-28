@@ -1,3 +1,8 @@
+---
+title: "Hacking for Good Waves"
+categories: programming
+---
+
 *Note: Surfline has been contacted and is working on patching the issue. They
 gave permission to post this and hooked up a year premium membership. Very
 metal  Surfline \m/.*

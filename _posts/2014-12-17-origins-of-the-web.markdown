@@ -1,3 +1,8 @@
+---
+title: "Origins of the Web"
+categories: programming
+---
+
 ![http.png]({{ site.baseurl }}/assets/origins-of-the-web/http.png)
 
 Learning new technologies can be extremely fun…extremely frustrating, but overall always a great time.  Over the course of the past few years on my journey to learning as much as I can about the modern day web, I’ve picked up some really awesome skills.  From web crawling in Ruby, to AJAX requests in JavaScript there really are a seemingly infinite amount of interesting topics for the modern day web developer to dive into.  It seems the deeper you get, the more interesting the the internet and related technologies become.

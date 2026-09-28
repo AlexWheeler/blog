@@ -1,3 +1,8 @@
+---
+title: "OAuth 2.0, Venmo, and the API Economy"
+categories: programming
+---
+
 Technologists are estimating that in the year 2014 we will see “the number of public and private APIs climbing to between 100,000 and 200,000” [3scale.net](https://www.3scale.net/2013/12/api-predictions-2014/).  Just reading this statement puts a huge smile on my face.  If you haven’t figured it out yet,  I find APIs extremely interesting.  Web development is fun.  Web development involving multiple services talking with each other is really, really fun.
 
 Besides being an (arguably) essential skill to building modern web applications, knowing how to properly interact with APIs presents you, the developer, with an entire new world of possibilities when it comes to building applications.  You might have wondered how some apps are able to post from your Facebook account or find your Twitter friends without you ever giving them your password.  Well, it actually isn’t as magical as it might seem and it all happens with the help of a technology known as OAuth.

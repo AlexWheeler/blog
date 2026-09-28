@@ -1,3 +1,8 @@
+---
+title: "So You Want to Build a Search Engine"
+categories: programming
+---
+
 I tend to keep posts about things I [work](http://www.coeverywhere.com/) on outside of the classroom - which makes sense because 99.9% of the cool technical projects I work on are outside of school.  However, at work I recently found myself using some really rad ideas I learned in my data structures class to find a solution to optimizing a program that will be running on our production platform - which means it needs to be fast - not seconds, but hundredths of a second. I’ll cover this solution in my next post.  Anyways, I figured if this knowledge was an enormous help to solving my problem, other people could find it useful or just plain cool.
 
 We worked on a ton of cool projects throughout the course, but one of my favorites was for sure a mini search engine we built, similar to how a service like google works.  Given a directory containing just over 2500 wikipedia articles, write a program to allow users to type in some keywords and get the 3 most relevant articles in our "database".  I’ve been wanting to write a post on this for a while simply because I thought it was really cool and can help you think about all the ways you could solve other problems.  These first two sections (Arrays, Linked Lists) go over some of the benefits and drawbacks to each respective data structure, so feel free to skip them if you already have a solid understanding of each, but they for sure act as a solid primer for the discussion about actually building the search engine.

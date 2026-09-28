@@ -1,3 +1,8 @@
+---
+title: "Procs, Blocks, Lambdas, and Lies"
+categories: programming
+---
+
 Github user supersam654 recently opened a great [issue](https://github.com/jnunemaker/flipper/issues/405) on the Flipper repo after running into trouble trying to register a group using Ruby's `&:method` shorthand.
 
 ![issue]({{ site.baseurl }}/assets/ruby-arity-symbol-proc/issue.png)
